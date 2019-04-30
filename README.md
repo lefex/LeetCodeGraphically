@@ -7,7 +7,7 @@
 
 
 
-**排序算法**
+### 图解排序算法
 
 | [图解排序 1/10 - 冒泡排序](https://mp.weixin.qq.com/s?__biz=MzUzMTk3ODc0OA==&mid=2247483822&idx=1&sn=ff5b8abd13ac4e89953dd07f16eca8d3&chksm=fabb013dcdcc882be39d9aad8c462de93eb7bcf49234caa5dd7403cc67bb84f4d2168a1952a5&scene=21#wechat_redirect) | 冒泡排序是通过比较两个相邻元素的大小实现排序，如果前一个元素大于后一个元素，就交换这两个元素 | <img style="border-radius: 30px" src="https://github.com/lefex/LeetCodeGraphically/blob/master/images/maopao.jpeg?raw=true" title="Vong_HUST" width="200"/> |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -23,7 +23,11 @@
 
 
 
+### 图解LeetCode链表相关算法
 
 
 
+| [图解 LeetCode 链表: 83. Remove Duplicates from Sorted List](https://mp.weixin.qq.com/s?__biz=MzUzMTk3ODc0OA==&mid=2247483939&idx=1&sn=5e68e353c5216ff197b8403152d03c02&chksm=fabb02b0cdcc8ba6fab84dca5b239dd44f0d1924fa5c559b681688c46ca885e00f0b93b9fe9a&token=623725354&lang=zh_CN#rd) | 给定一个「有序」的链表，去掉重复的节点，每个节点只能出现一次 | <img style="border-radius: 30px" src="https://github.com/lefex/LeetCodeGraphically/blob/master/images/lec_83.jpeg?raw=true" title="lefex" width="200"/> |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [图解 LeetCode 链表: 82. Remove Duplicates from Sorted List II](https://mp.weixin.qq.com/s?__biz=MzUzMTk3ODc0OA==&mid=2247483940&idx=1&sn=0f71bdcf10b28e523770b8d7d10acbd8&chksm=fabb02b7cdcc8ba1a00c9018834d480bddeeac837d57e7c2940619aafd5b418f1ebfa564c2dd&token=623725354&lang=zh_CN#rd) | 移除链表中出现过多次的节点，解这道题的思路也是「水管思路」，对水管进行拆分，重组。链表中可能出现多个重复节点，需要把这些重复的节点全部干掉 | <img style="border-radius: 30px" src="https://github.com/lefex/LeetCodeGraphically/blob/master/images/lec_82.jpeg?raw=true" title="lefex" width="200"/> |
 
