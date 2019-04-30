@@ -7,13 +7,17 @@
 
 
 
-### 公众号
+## 公众号
+
+
 
 图解算法相关的文章每天都会在公众号发布，欢迎关注我的公众号「超越技术」，和我一同学习！！！
 
 <img style="border-radius: 30px" src="https://github.com/lefex/LeetCodeGraphically/blob/master/images/cyjs_qr.png?raw=true" title="lefex" width="200"/>
 
-### 图解排序算法
+
+
+## 图解排序算法
 
 | [图解排序 1/10 - 冒泡排序](https://mp.weixin.qq.com/s?__biz=MzUzMTk3ODc0OA==&mid=2247483822&idx=1&sn=ff5b8abd13ac4e89953dd07f16eca8d3&chksm=fabb013dcdcc882be39d9aad8c462de93eb7bcf49234caa5dd7403cc67bb84f4d2168a1952a5&scene=21#wechat_redirect) | 冒泡排序是通过比较两个相邻元素的大小实现排序，如果前一个元素大于后一个元素，就交换这两个元素 | <img style="border-radius: 30px" src="https://github.com/lefex/LeetCodeGraphically/blob/master/images/maopao.jpeg?raw=true" title="lefex" width="200"/> |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -29,7 +33,7 @@
 
 
 
-### 图解LeetCode链表相关算法
+## 图解LeetCode链表相关算法
 
 
 
