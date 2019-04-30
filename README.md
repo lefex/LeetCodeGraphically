@@ -19,7 +19,7 @@
 
 ## 图解排序算法
 
-[代码位置](https://github.com/lefex/LeetCodeGraphically/blob/master/code/LeetCodeGraphically/LEFSortManager.h)
+[代码位置](https://github.com/lefex/LeetCodeGraphically/blob/master/code/LeetCodeGraphically/LeetCodeGraphically/LEFSortManager.h)
 
 | [图解排序 1/10 - 冒泡排序](https://mp.weixin.qq.com/s?__biz=MzUzMTk3ODc0OA==&mid=2247483822&idx=1&sn=ff5b8abd13ac4e89953dd07f16eca8d3&chksm=fabb013dcdcc882be39d9aad8c462de93eb7bcf49234caa5dd7403cc67bb84f4d2168a1952a5&scene=21#wechat_redirect) | 冒泡排序是通过比较两个相邻元素的大小实现排序，如果前一个元素大于后一个元素，就交换这两个元素 | <img style="border-radius: 30px" src="https://github.com/lefex/LeetCodeGraphically/blob/master/images/maopao.jpeg?raw=true" title="lefex" width="200"/> |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -37,7 +37,7 @@
 
 ## 图解LeetCode链表相关算法
 
-[代码位置](https://github.com/lefex/LeetCodeGraphically/blob/master/code/LeetCodeGraphically/LEFListSubject.hpp)
+[代码位置](https://github.com/lefex/LeetCodeGraphically/blob/master/code/LeetCodeGraphically/LeetCodeGraphically/LEFListSubject.hpp)
 
 | [图解 LeetCode 链表: 83. Remove Duplicates from Sorted List](https://mp.weixin.qq.com/s?__biz=MzUzMTk3ODc0OA==&mid=2247483939&idx=1&sn=5e68e353c5216ff197b8403152d03c02&chksm=fabb02b0cdcc8ba6fab84dca5b239dd44f0d1924fa5c559b681688c46ca885e00f0b93b9fe9a&token=623725354&lang=zh_CN#rd) | 给定一个「有序」的链表，去掉重复的节点，每个节点只能出现一次 | <img style="border-radius: 30px" src="https://github.com/lefex/LeetCodeGraphically/blob/master/images/let_83.png?raw=true" title="lefex" width="200"/> |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
