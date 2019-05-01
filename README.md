@@ -46,3 +46,5 @@
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [图解 LeetCode 链表: 82. Remove Duplicates from Sorted List II](https://mp.weixin.qq.com/s?__biz=MzUzMTk3ODc0OA==&mid=2247483940&idx=1&sn=0f71bdcf10b28e523770b8d7d10acbd8&chksm=fabb02b7cdcc8ba1a00c9018834d480bddeeac837d57e7c2940619aafd5b418f1ebfa564c2dd&token=623725354&lang=zh_CN#rd) | 移除链表中出现过多次的节点，解这道题的思路也是「水管思路」，对水管进行拆分，重组。链表中可能出现多个重复节点，需要把这些重复的节点全部干掉 | <img style="border-radius: 30px" src="https://github.com/lefex/LeetCodeGraphically/blob/master/images/let_82.png?raw=true" title="lefex" width="200"/> |
 
+**更多算法题，关注公众号超越技术，或者前往博客 [超越技术](https://lefex.github.io/)**
+
