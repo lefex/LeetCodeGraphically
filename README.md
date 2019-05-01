@@ -1,4 +1,4 @@
-![](https://github.com/lefex/LeetCodeGraphically/blob/master/images/cyjs_qr.png)
+![](https://github.com/lefex/LeetCodeGraphically/blob/master/images/banner.png)
 
 # LeetCodeGraphically
 ### 图解 LeetCode 算法，让算法"活"起来。
