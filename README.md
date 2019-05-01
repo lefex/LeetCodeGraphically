@@ -1,6 +1,5 @@
 ![](https://github.com/lefex/LeetCodeGraphically/blob/master/images/banner.png)
 
-# LeetCodeGraphically
 ### 图解 LeetCode 算法，让算法"活"起来。
 
 数据结构和算法是面试非常重要的内容，有些算法非常难以理解，仅靠文字描述很难让读者明白算法思想。如果通过图示的方式来描述算法和数据结构，会形象很多，读者也容易理解算法的真实含义。
