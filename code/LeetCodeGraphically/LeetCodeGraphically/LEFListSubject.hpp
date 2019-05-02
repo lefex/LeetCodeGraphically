@@ -286,47 +286,34 @@ namespace LEFListSubject {
                 return head;
             }
             
-            //
-            ListNode *mNode = NULL;
             ListNode *mPreNode = NULL;
-            ListNode *last = NULL;
             ListNode *dumpHead = new ListNode(0);
             dumpHead->next = head;
             ListNode *p = dumpHead;
             int count = 0;
-            while (p) {
+            while (p != NULL) {
                 if (count == m) {
-                    mNode = p;
-                    if (last) {
-                        mPreNode = last;
+                    // 找到了第 m 个 节点和第 n 个节点
+                    ListNode *cur = p;
+                    ListNode *pre = NULL;
+                    int temp = 1;
+                    while (cur != NULL && temp <= n - m + 1) {
+                        ListNode *tempNext = cur->next;
+                        cur->next = pre;
+                        pre = cur;
+                        cur = tempNext;
+                        temp += 1;
+                        
                     }
-                    break;
+                    
+                    mPreNode->next = pre;
+                    p->next = cur;
+                    printLinkedList(dumpHead->next);
                 }
-                last = p;
+                mPreNode = p;
                 p = p->next;
                 count += 1;
             }
-            
-            // 找到了第 m 个 节点和第 n 个节点
-            ListNode *cur = mNode;
-            ListNode *pre = NULL;
-            ListNode *first = NULL;
-            int temp = 1;
-            while (cur != NULL) {
-                if (first == NULL) {
-                    first = cur;
-                }
-                ListNode *tempNext = cur->next;
-                cur->next = pre;
-                pre = cur;
-                cur = tempNext;
-                if (temp + 1 == n) {
-                    break;
-                }
-            }
-            
-            mPreNode->next = pre;
-            first->next = cur;
             
             return dumpHead->next;
         }
