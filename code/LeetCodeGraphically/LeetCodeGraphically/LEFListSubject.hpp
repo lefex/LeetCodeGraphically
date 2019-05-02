@@ -281,35 +281,38 @@ namespace LEFListSubject {
             if (head == NULL || head->next == NULL || m == n) {
                 return head;
             }
-            
+            // 判断m和n的合法性
             if (m > n || m < 0 || n < 0) {
                 return head;
             }
             
             ListNode *mPreNode = NULL;
+            // 创建一个虚拟头结点，这样为了统一逻辑
             ListNode *dumpHead = new ListNode(0);
             dumpHead->next = head;
             ListNode *p = dumpHead;
             int count = 0;
             while (p != NULL) {
+                // 查找第 m 个节点
                 if (count == m) {
-                    // 找到了第 m 个 节点和第 n 个节点
+                    // 找到了第 m 个 节点，对第 >= m && <= n 的子链表进行反转
                     ListNode *cur = p;
                     ListNode *pre = NULL;
                     int temp = 1;
+                    // 前进 n - m + 1 个节点，进行反转
                     while (cur != NULL && temp <= n - m + 1) {
                         ListNode *tempNext = cur->next;
                         cur->next = pre;
                         pre = cur;
                         cur = tempNext;
                         temp += 1;
-                        
                     }
                     
                     mPreNode->next = pre;
                     p->next = cur;
                     printLinkedList(dumpHead->next);
                 }
+                // 记录 m 的前一个节点，由于加了个虚拟节点，mPreNode 肯定不为空
                 mPreNode = p;
                 p = p->next;
                 count += 1;
@@ -317,73 +320,66 @@ namespace LEFListSubject {
             
             return dumpHead->next;
         }
-        
-        /***
-         Reverse a linked list from position m to n. Do it in one-pass.
+        /**
+         237. Delete Node in a Linked List
          
-         Note: 1 ≤ m ≤ n ≤ length of list.
+         Write a function to delete a node (except the tail) in a singly linked list,
          
-         Example:
+         given only access to that node.
          
-         Input: 1->2->3->4->5->NULL, m = 2, n = 4
-         Output: 1->4->3->2->5->NULL
-         逆序一个链表中 m 到 n 子序列
+         
+         Given linked list -- head = [4,5,1,9], which looks like following:
+         
+         4->5->1->9
+         
+         Example 1:
+         
+         Input: head = [4,5,1,9], node = 5
+         
+         Output: [4,1,9]
+         
+         Explntion: You are given the seond node with value 5, the linked list should
+         
+         become 4 -> 1 -> 9 after calling your function.
+         
+         Example 2:
+         
+         Input: head = [4,5,1,9], node = 1
+         
+         Output: [4,5,9]
+         
+         Explntion: You are given the third node with value 1, the linked list should
+         
+         become 4 -> 5 -> 9 after calling your function.
+         
+         The linked list will have at least two elements.
+         
+         All of the nodes' values will be unique.
+         
+         The given node will not be the tail and it will always be a valid node of the linked
+         
+         list.
+         
+         Do not return anything from your function.
          */
-        ListNode* reverseBetween3(ListNode* head, int m, int n) {
-            if (head == NULL || head->next == NULL || m == n) {
-                return head;
+        void deleteNode(ListNode* node) {
+            if (node == NULL) {
+                return;
             }
-            
-            if (m > n || m < 0 || n < 0) {
-                return head;
-            }
-            
-            //
-            ListNode *mNode = NULL;
-            ListNode *mFrontNode = NULL;
-            ListNode *mNextNode = NULL;
-            ListNode *nNode = NULL;
-            ListNode *nFrontNode = NULL;
-            ListNode *nNextNode = NULL;
-            ListNode *p = head;
-            ListNode *lastP = NULL;
-            int count = 1;
-            while (p && count <= n) {
-                if (count == m) {
-                    mNode = p;
-                    if (lastP) {
-                        mFrontNode = lastP;
-                    }
-                    mNextNode = p->next;
-                } else if (count == n) {
-                    nNode = p;
-                    if (lastP) {
-                        nFrontNode = lastP;
-                    }
-                    nNextNode = p->next;
+            ListNode *cur = node;
+            ListNode *pre = NULL;
+            while (cur) {
+                if (cur->val == node->val) {
+                    pre = cur;
                 }
-                lastP = p;
-                p = p->next;
-                count += 1;
+                cur = cur->next;
+                if (pre) {
+                    pre->val = cur->val;
+                    pre = cur;
+                }
             }
-            
-            if (mFrontNode) {
-                mFrontNode->next = nNode;
-                nNode->next = mNextNode;
-                nFrontNode->next = mNode;
-                mNode->next = nNextNode;
-            } else {
-                head = nNode;
-                nFrontNode->next = mNode;
-                mNode->next = nNextNode;
-            }
-            
-            return head;
+            printLinkedList(node);
         }
-        
-        
-        
     };
 }
-
 #endif /* LEFListSubject_hpp */
