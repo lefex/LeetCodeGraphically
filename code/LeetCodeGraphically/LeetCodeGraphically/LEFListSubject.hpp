@@ -254,22 +254,16 @@ namespace LEFListSubject {
         ListNode* reverseBetween(ListNode* head) {
             ListNode *prev = NULL;
             ListNode *curr = head;
-            while (curr) {
-                ListNode *prev = NULL;
-                ListNode *curr = head;
-                while (curr != NULL) {
-                    // 保存下一个节点，防止断链
-                    ListNode *nextTemp = curr->next;
-                    // 让当前节点的下一个指向前一个
-                    curr->next = prev;
-                    // 移动前一个位置
-                    prev = curr;
-                    // 遍历下一个子串
-                    curr = nextTemp;
-                }
-                return prev;
+            while (curr != NULL) {
+                // 保存下一个节点，防止断链
+                ListNode *nextTemp = curr->next;
+                // 让当前节点的下一个指向前一个
+                curr->next = prev;
+                // 移动前一个位置
+                prev = curr;
+                // 遍历下一个子串
+                curr = nextTemp;
             }
-            
             return prev;
         }
         /***
@@ -284,7 +278,6 @@ namespace LEFListSubject {
          逆序一个链表中 m 到 n 子序列
          */
         ListNode* reverseBetween2(ListNode* head, int m, int n) {
-            printLinkedList(head);
             if (head == NULL || head->next == NULL || m == n) {
                 return head;
             }
@@ -296,21 +289,16 @@ namespace LEFListSubject {
             //
             ListNode *mNode = NULL;
             ListNode *mPreNode = NULL;
-            ListNode *nNode = NULL;
-            ListNode *nNextNode = NULL;
-            ListNode *p = head;
             ListNode *last = NULL;
-            int count = 1;
+            ListNode *dumpHead = new ListNode(0);
+            dumpHead->next = head;
+            ListNode *p = dumpHead;
+            int count = 0;
             while (p) {
                 if (count == m) {
                     mNode = p;
                     if (last) {
                         mPreNode = last;
-                    }
-                } else if (count == n) {
-                    nNode = p;
-                    if (nNode->next) {
-                        nNextNode = nNode->next;
                     }
                     break;
                 }
@@ -322,31 +310,21 @@ namespace LEFListSubject {
             // 找到了第 m 个 节点和第 n 个节点
             ListNode *cur = mNode;
             ListNode *pre = NULL;
+            int temp = 1;
             while (cur != NULL) {
                 ListNode *tempNext = cur->next;
                 cur->next = pre;
                 pre = cur;
                 cur = tempNext;
-                if (cur == nNode) {
+                if (temp + 1 == n) {
                     break;
                 }
             }
-            printLinkedList(pre);
-            printLinkedList(mPreNode);
             
-            if (mPreNode) {
-                mPreNode->next = mNode;
-            } else {
-                head = mNode;
-            }
-            if (nNextNode) {
-                pre->next = nNextNode;
-            } else {
-                //
-            }
-            printLinkedList(head);
+            mPreNode->next = pre;
+            pre->next = cur;
             
-            return head;
+            return dumpHead->next;
         }
         
         /***
