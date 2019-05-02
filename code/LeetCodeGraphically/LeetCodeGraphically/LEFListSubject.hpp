@@ -310,8 +310,12 @@ namespace LEFListSubject {
             // 找到了第 m 个 节点和第 n 个节点
             ListNode *cur = mNode;
             ListNode *pre = NULL;
+            ListNode *first = NULL;
             int temp = 1;
             while (cur != NULL) {
+                if (first == NULL) {
+                    first = cur;
+                }
                 ListNode *tempNext = cur->next;
                 cur->next = pre;
                 pre = cur;
@@ -322,7 +326,7 @@ namespace LEFListSubject {
             }
             
             mPreNode->next = pre;
-            pre->next = cur;
+            first->next = cur;
             
             return dumpHead->next;
         }
