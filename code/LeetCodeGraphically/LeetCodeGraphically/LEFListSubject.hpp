@@ -363,22 +363,270 @@ namespace LEFListSubject {
          Do not return anything from your function.
          */
         void deleteNode(ListNode* node) {
-            if (node == NULL) {
-                return;
+            // 记录上一个节点
+            ListNode *last = NULL;
+            while (node) {
+                // 最后一个节点，不为空
+                if (node->next) {
+                    node->val = node->next->val;
+                } else {
+                    last->next = NULL;
+                }
+                last = node;
+                node = node->next;
             }
-            ListNode *cur = node;
-            ListNode *pre = NULL;
+        }
+        
+        
+        /**
+         203. Remove Linked List Elements
+         Remove all elements from a linked list of integers that have value val.
+         
+         Example:
+         
+         Input:  1->2->6->3->4->5->6, val = 6
+         Output: 1->2->3->4->5
+         
+
+         */
+        ListNode* removeElements(ListNode* head, int val) {
+            //
+            ListNode *cur = NULL;
+            ListNode *rHead = NULL;
+            while (head) {
+                if (head->val != val) {
+                    if (!rHead) {
+                        rHead = head;
+                        cur = head;
+                    } else {
+                        cur->next = head;
+                        cur = cur->next;
+                    }
+                } else {
+                    // 1->null 1
+                    if (cur && cur->next) {
+                        cur->next = NULL;
+                    }
+                }
+                head = head->next;
+            }
+            return rHead;
+        }
+        
+        ListNode* removeNthFromEnd(ListNode* head, int n) {
+            // 新建一个虚拟节点
+            ListNode *dumpHead = new ListNode(0);
+            dumpHead->next = head;
+            // 前一个指针，指向虚拟节点
+            ListNode *first = dumpHead;
+            // 后一个指针，指向虚拟节点
+            ListNode *second = dumpHead;
+            
+            // 找到 second 的位置
+            int count = 0;
+            while (count < n + 1) {
+                second = second->next;
+                count += 1;
+            }
+            
+            // 当 second->next 为空的时候，p的next就是要删除的节点
+            while (second) {
+                first = first->next;
+                second = second->next;
+            }
+            // 删除节点并释放内存
+            ListNode *delNode = first->next;
+            first->next = delNode->next;
+            delete delNode;
+            // 删除 dumpHead 并释放内存
+            ListNode *ret = dumpHead->next;
+            delete dumpHead;
+            
+            return ret;
+        }
+        
+        /**
+         328. Odd Even Linked List
+         Medium
+         
+         Given a singly linked list, group all odd nodes together followed by the even nodes. Please note here we are talking about the node number and not the value in the nodes.
+         
+         You should try to do it in place. The program should run in O(1) space complexity and O(nodes) time complexity.
+         
+         Example 1:
+         
+         Input: 1->2->3->4->5->NULL
+         Output: 1->3->5->2->4->NULL
+         
+         Example 2:
+         
+         Input: 2->1->3->5->6->4->7->NULL
+         Output: 2->3->6->7->1->5->4->NULL
+         
+         Note:
+         
+         The relative order inside both the even and odd groups should remain as it was in the input.
+         The first node is considered odd, the second node even and so on ...
+         
+         */
+        ListNode* oddEvenList(ListNode* head) {
+            if (head == NULL || head->next == NULL) {
+                return head;
+            }
+            ListNode *first = NULL;
+            ListNode *second = NULL;
+            ListNode *curFirst = NULL;
+            ListNode *curSecond = NULL;
+            ListNode *cur = head;
+            int n = 1;
             while (cur) {
-                if (cur->val == node->val) {
-                    pre = cur;
+                cout << "cur: ";
+                printLinkedList(cur);
+                ListNode *temp = cur->next;
+                // 清空当前节点的下一个节点
+                cur->next = NULL;
+                
+                // 奇数
+                if (first == NULL) {
+                    first = cur;
+                    curFirst = first;
+                } else {
+                    curFirst->next = cur;
+                    curFirst = curFirst->next;
                 }
-                cur = cur->next;
-                if (pre) {
-                    pre->val = cur->val;
-                    pre = cur;
+                
+                // 如果有偶数，继续处理偶数
+                cur = temp;
+                if (cur) {
+                    ListNode *temp2 = cur->next;
+                    cur->next = NULL;
+                    if (second == NULL) {
+                        second = cur;
+                        curSecond = second;
+                    } else {
+                        curSecond->next = cur;
+                        curSecond = curSecond->next;
+                    }
+                    cur = temp2;
                 }
+                
+                n += 2;
+                cout << "first: ";
+                printLinkedList(first);
+                cout << "second: ";
+                printLinkedList(second);
             }
-            printLinkedList(node);
+            curFirst->next = second;
+            return first;
+        }
+        
+        /**
+         24. Swap Nodes in Pairs
+         
+         Given a linked list, swap every two adjacent nodes and return its head.
+         You may not modify the values in the list's nodes, only nodes itself may be changed.
+         
+         Example:
+         Given 1->2->3->4, you should return the list as 2->1->4->3.
+         
+         Runtime: 4 ms, faster than 100.00% of C++ online submissions for Swap Nodes in Pairs.
+         Memory Usage: 8.6 MB, less than 100.00% of C++ online submissions for Swap Nodes in Pairs.
+         */
+        ListNode* swapPairs(ListNode* head) {
+            if (head == NULL || head->next == NULL) {
+                return NULL;
+            }
+            // 结果的头节点
+            ListNode *retHead = NULL;
+            // 结果的当前节点
+            ListNode *curRet = NULL;
+            while (head) {
+                printLinkedList(head);
+                ListNode *temp = head->next;
+                head->next = NULL;
+                // 第一个节点
+                ListNode *first = head;
+                
+                head = temp;
+                if (head) {
+                    ListNode *temp2 = head->next;
+                    head->next = NULL;
+                    // 第二个节点
+                    ListNode *second = head;
+                    
+                    // 第二个节点先与第一个节点
+                    if (!retHead) {
+                        retHead = second;
+                        retHead->next = first;
+                        curRet = retHead->next;
+                    } else {
+                        curRet->next = second;
+                        second->next = first;
+                        curRet = first;
+                    }
+                    
+                    head = temp2;
+                } else {
+                    curRet->next = first;
+                    curRet = first;
+                }
+                printLinkedList(retHead);
+            }
+            return retHead;
+        }
+        
+        /**
+         旋转单链表，思想就是让两边成为一个环，然后移动尾指针
+         61. Rotate List
+         Medium
+         
+         Given a linked list, rotate the list to the right by k places, where k is non-negative.
+         
+         Example 1:
+         
+         Input: 1->2->3->4->5->NULL, k = 2
+         Output: 4->5->1->2->3->NULL
+         Explanation:
+         rotate 1 steps to the right: 5->1->2->3->4->NULL
+         rotate 2 steps to the right: 4->5->1->2->3->NULL
+
+         */
+        ListNode* rotateRight(ListNode* head, int k) {
+            if(head == NULL) {
+                return NULL;
+            }
+            int listNum = 1;
+            ListNode *tail = head;
+            
+            //find tail and count listNum
+            while(tail->next != NULL){
+                listNum++;
+                tail = tail->next;
+            }
+            tail->next = head;
+            int newHeadIndex = listNum - k % listNum;
+            
+            for(int i = 0; i < newHeadIndex; i++){
+                tail = tail->next;
+            }
+            
+            head = tail->next;
+            tail->next = NULL;
+            
+            return head;
+        }
+        
+        
+        /**
+         141. Linked List Cycle
+         Easy
+         
+         Given a linked list, determine if it has a cycle in it.
+         
+         To represent a cycle in the given linked list, we use an integer pos which represents the position (0-indexed) in the linked list where tail connects to. If pos is -1, then there is no cycle in the linked list.
+         */
+        bool hasCycle(ListNode *head) {
+            return false;
         }
     };
 }
