@@ -19,12 +19,13 @@
     [super viewDidLoad];
     
     LEFListSubject::Soulation s;
-    int arr[] = {1, 2, 3, 4, 5};
+    int arr[] = {1,2,3,4,5};
     int n = sizeof(arr) / sizeof(int);
     LEFListSubject::ListNode *head = s.createLinkedList(arr, n);
     s.printLinkedList(head);
 //    s.reverseBetween2(head, 1, 2);
-    s.reverseBetween2(head, 2, 4);
+    LEFListSubject::ListNode *ret = s.swapPairs(head);
+    s.printLinkedList(ret);
 
 }
 
