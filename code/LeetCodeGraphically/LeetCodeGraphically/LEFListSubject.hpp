@@ -363,18 +363,12 @@ namespace LEFListSubject {
          Do not return anything from your function.
          */
         void deleteNode(ListNode* node) {
-            // 记录上一个节点
-            ListNode *last = NULL;
-            while (node) {
-                // 最后一个节点，不为空
-                if (node->next) {
-                    node->val = node->next->val;
-                } else {
-                    last->next = NULL;
-                }
-                last = node;
-                node = node->next;
-            }
+            // 下一个节点的值赋值给被删除的节点
+            node->val = node->next->val;
+            ListNode *delNode = node->next;
+            node->next = node->next->next;
+            // 释放删除节点的内存空间
+            delete delNode;
         }
         
         
@@ -390,10 +384,16 @@ namespace LEFListSubject {
 
          */
         ListNode* removeElements(ListNode* head, int val) {
-            //
+            // 结果节点的当前节点
             ListNode *cur = NULL;
+            // 结果节点的头节点
             ListNode *rHead = NULL;
             while (head) {
+                // 防止断链
+                ListNode *temp = head->next;
+                // 使得当前节点的next为空
+                head->next = NULL;
+                // 如果值不等，就插入到结果链表中
                 if (head->val != val) {
                     if (!rHead) {
                         rHead = head;
@@ -402,13 +402,8 @@ namespace LEFListSubject {
                         cur->next = head;
                         cur = cur->next;
                     }
-                } else {
-                    // 1->null 1
-                    if (cur && cur->next) {
-                        cur->next = NULL;
-                    }
                 }
-                head = head->next;
+                head = temp;
             }
             return rHead;
         }
@@ -624,9 +619,80 @@ namespace LEFListSubject {
          Given a linked list, determine if it has a cycle in it.
          
          To represent a cycle in the given linked list, we use an integer pos which represents the position (0-indexed) in the linked list where tail connects to. If pos is -1, then there is no cycle in the linked list.
+         
+         Runtime: 12 ms, faster than 99.17% of C++ online submissions for Linked List Cycle.
+         Memory Usage: 9.8 MB, less than 23.77% of C++ online submissions for Linked List Cycle.
+         Next challenges:
+         
+         快慢指针，比作一个环形操场的跑道，快的和慢的总会相遇
          */
         bool hasCycle(ListNode *head) {
+            if (head == NULL || head->next == NULL) {
+                return false;
+            }
+            
+            ListNode *slow = head;
+            ListNode *fast = head;
+            while (fast != NULL && fast->next != NULL) {
+                slow = slow->next;
+                fast = fast->next->next;
+                if (slow == fast) {
+                    return true;
+                }
+            }
             return false;
+        }
+        
+        /**
+         Given a linked list, return the node where the cycle begins. If there is no cycle, return null.
+         */
+        ListNode *detectCycle(ListNode *head) {
+            if (head == NULL || head->next == NULL) {
+                return NULL;
+            }
+            ListNode *slow = head;
+            ListNode *fast = head;
+            while (fast != NULL && fast->next != NULL) {
+                slow = slow->next;
+                fast = fast->next->next;
+                if (slow == fast) {
+                    break;
+                }
+            }
+            
+            slow = head;
+            while (slow != fast) {
+                slow = slow->next;
+                fast = fast->next;
+            }
+            
+            return slow;
+        }
+        
+        /**
+         求两个链表的交点
+         Write a program to find the node at which the intersection of two singly linked lists begins.
+         */
+        ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+            if (headA == NULL || headB == NULL) {
+                return NULL;
+            }
+            ListNode *pa = headA;
+            ListNode *pb = headB;
+            while (pb != pa) {
+                if (pa == NULL) {
+                    pa = headB;
+                } else {
+                    pa = pa->next;
+                }
+                
+                if (pb == NULL) {
+                    pb = headA;
+                } else {
+                    pb = pb->next;
+                }
+            }
+            return pb;
         }
     };
 }
