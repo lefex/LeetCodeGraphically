@@ -15,6 +15,7 @@
 		34145F27227889D600502779 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 34145F26227889D600502779 /* main.m */; };
 		34145F31227889FA00502779 /* LEFListSubject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34145F2D227889FA00502779 /* LEFListSubject.cpp */; };
 		34145F32227889FA00502779 /* LEFSortManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34145F2F227889FA00502779 /* LEFSortManager.m */; };
+		3415809A2284FA3200AE3F4D /* LEFLRUCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 341580982284FA3100AE3F4D /* LEFLRUCache.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,8 @@
 		34145F2E227889FA00502779 /* LEFSortManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEFSortManager.h; sourceTree = "<group>"; };
 		34145F2F227889FA00502779 /* LEFSortManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEFSortManager.m; sourceTree = "<group>"; };
 		34145F30227889FA00502779 /* LEFListSubject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LEFListSubject.hpp; sourceTree = "<group>"; };
+		341580982284FA3100AE3F4D /* LEFLRUCache.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LEFLRUCache.cpp; sourceTree = "<group>"; };
+		341580992284FA3100AE3F4D /* LEFLRUCache.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LEFLRUCache.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +80,8 @@
 				34145F22227889D600502779 /* LaunchScreen.storyboard */,
 				34145F25227889D600502779 /* Info.plist */,
 				34145F26227889D600502779 /* main.m */,
+				341580982284FA3100AE3F4D /* LEFLRUCache.cpp */,
+				341580992284FA3100AE3F4D /* LEFLRUCache.hpp */,
 			);
 			path = LeetCodeGraphically;
 			sourceTree = "<group>";
@@ -153,6 +158,7 @@
 			files = (
 				34145F1C227889D000502779 /* ViewController.mm in Sources */,
 				34145F27227889D600502779 /* main.m in Sources */,
+				3415809A2284FA3200AE3F4D /* LEFLRUCache.cpp in Sources */,
 				34145F32227889FA00502779 /* LEFSortManager.m in Sources */,
 				34145F31227889FA00502779 /* LEFListSubject.cpp in Sources */,
 				34145F19227889D000502779 /* AppDelegate.m in Sources */,

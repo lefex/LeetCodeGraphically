@@ -592,15 +592,15 @@ namespace LEFListSubject {
             }
             int listNum = 1;
             ListNode *tail = head;
-            
-            //find tail and count listNum
+            // 计算链表的长度
             while(tail->next != NULL){
                 listNum++;
                 tail = tail->next;
             }
+            // 形成一个环
             tail->next = head;
             int newHeadIndex = listNum - k % listNum;
-            
+            // tail 移动 newHeadIndex 次
             for(int i = 0; i < newHeadIndex; i++){
                 tail = tail->next;
             }
@@ -630,12 +630,14 @@ namespace LEFListSubject {
             if (head == NULL || head->next == NULL) {
                 return false;
             }
-            
+            // 慢指针每次移动一个节点
             ListNode *slow = head;
+            // 快指针每次移动2个节点
             ListNode *fast = head;
             while (fast != NULL && fast->next != NULL) {
                 slow = slow->next;
                 fast = fast->next->next;
+                // 如果快慢指针相遇，则有环
                 if (slow == fast) {
                     return true;
                 }
@@ -672,6 +674,8 @@ namespace LEFListSubject {
         /**
          求两个链表的交点
          Write a program to find the node at which the intersection of two singly linked lists begins.
+            1-2-3-4
+         10-9-8-3-7-6
          */
         ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
             if (headA == NULL || headB == NULL) {
