@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <list>
+#include <string>
 #include <unordered_map>
 
 using Key = int;
@@ -26,7 +27,7 @@ using ListIterator = std::list<std::pair<Key,Value> >::iterator;
 class LRUCache {
 public:
     // 创建一个元素为 pair 类型的 list
-    std::list<std::pair<Key,Value> > list;
+    std::list<std::pair<Key,Value> > alist;
     // 创建一个unordered_map
     std::unordered_map<Key, ListIterator> map;
     int capacity;
@@ -36,7 +37,7 @@ public:
         this->capacity = 0;
         this->size = maxCapacity;
     }
-    
+
     int get(Key key) {
         if (map.find(key) == map.end())
         {
@@ -47,10 +48,10 @@ public:
             
             ListIterator it = map[key];
             std::pair<Key, Value> p = *it;
-            list.erase(it);
+            alist.erase(it);
             // We update our key's iterator
-            list.insert(list.begin(), p);
-            map[key] = list.begin();
+            alist.insert(alist.begin(), p);
+            map[key] = alist.begin();
             return p.second;
         }
     }
@@ -61,8 +62,8 @@ public:
         {
             if (this->capacity == this->size)
             {
-                Key key_to_erase = (list.back()).first;
-                list.pop_back();
+                Key key_to_erase = (alist.back()).first;
+                alist.pop_back();
                 map.erase(key_to_erase);
             }
             else
@@ -74,11 +75,28 @@ public:
         else
         {
             ListIterator it = map[key];
-            list.erase(it);
+            alist.erase(it);
         }
         // We update our key's iterator
-        list.insert(list.begin(), p);
-        map[key] = list.begin();
+        alist.insert(alist.begin(), p);
+        map[key] = alist.begin();
+    }
+    
+    void useList() {
+        /**
+         C++ 中的 List
+         */
+        using namespace std;
+        list<string> nameList;
+        nameList.push_front(" I ");
+        nameList.push_back(" am ");
+        nameList.push_back(" lefex");
+        
+        list<string>::iterator nameIterator;
+        for (nameIterator = nameList.begin(); nameIterator != nameList.end(); nameIterator++) {
+            cout << *nameIterator;
+        }
+        
     }
 };
 

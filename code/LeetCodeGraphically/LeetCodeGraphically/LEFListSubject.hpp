@@ -51,6 +51,61 @@ namespace LEFListSubject {
             cout << "NULL" << endl;
         }
         
+        int compareLinedList(ListNode *l1, ListNode *l2) {
+            int len1 = 0;
+            int len2 = 0;
+            ListNode *curL1 = l1;
+            ListNode *curL2 = l2;
+            bool iszero1 = true;
+            bool iszero2 = true;
+            while (curL1) {
+                if (curL1->val != 0) {
+                    iszero1 = false;
+                }
+                curL1 = curL1->next;
+                len1 += 1;
+            }
+            while (curL2) {
+                if (curL2->val != 0) {
+                    iszero2 = false;
+                }
+                curL2 = curL2->next;
+                len2 += 1;
+            }
+            
+            if (iszero1 && iszero2) {
+                return 0;
+            } else if (iszero1) {
+                return -1;
+            } else if (iszero2) {
+                return 1;
+            }
+            
+            if (len1 > len2) {
+                return 1;
+            } else if (len1 < len2) {
+                return -1;
+            } else {
+                curL1 = l1;
+                curL2 = l2;
+                while (curL1 && curL2) {
+                    if (curL1->val > curL2->val) {
+                        return 1;
+                    } else if (curL1->val < curL2->val) {
+                        return -1;
+                    }
+                    curL1 = curL1->next;
+                    curL2 = curL2->next;
+                }
+                return 0;
+            }
+        }
+        
+        bool isGreaterThan(ListNode *l1, ListNode *l2) {
+            int index = compareLinedList(l1, l2);
+            return index == 1;
+        }
+        
         /**
          合并两个有序的单链表
          l1 = 1-2-4
@@ -238,7 +293,194 @@ namespace LEFListSubject {
                 rear->next = new ListNode(num);
             }
             return front;
+        }
+        
+        /**
+         大数相减
+         456 - 123 = 333
+         6-5-4
+         3-2-1
+         如果 l1 > l2,  l1-l2, 否则 l2-l1，结果为负
+         */
+        ListNode *subTwoNumbers(ListNode *l1, ListNode *l2) {
+            // 创建头结点
+            ListNode *front = NULL;
+            // 创建尾结点
+            ListNode *rear = NULL;
             
+            // 用来标记进位的值，如果大于等于10，则进位为1
+            int num = 0;
+            
+            while (l1 != NULL || l2 != NULL) {
+                int l1Value = 0;
+                if (l1 != NULL) {
+                    l1Value = l1->val;
+                    l1 = l1->next;
+                }
+                int l2Value = 0;
+                if (l2 != NULL) {
+                    l2Value = l2->val;
+                    l2 = l2->next;
+                }
+                
+                int sub = 0;
+                // 需要减去借位的值
+                l1Value = l1Value - num;
+                if (l1Value >= l2Value) {
+                    // 直接做减法运算
+                    sub = l1Value - l2Value;
+                    num = 0;
+                } else {
+                    // 借 10 再减去 l2Value
+                    sub = l1Value + 10 - l2Value;
+                    num = 1;
+                }
+                
+                // 创建一个节点
+                ListNode *node = new ListNode(sub);
+                if (front == NULL) {
+                    front = node;
+                } else {
+                    rear->next = node;
+                }
+                rear = node;
+            }
+            return front;
+        }
+        
+        /**
+         大数相乘
+         456 - 123 = 333
+         6-5-4
+         3-2-1
+         如果 l1 > l2,  l1-l2, 否则 l2-l1，结果为负
+         */
+        ListNode *multTwoNumbers(ListNode *l1, ListNode *l2) {
+            // 记录中间结果的和
+            ListNode *temp = NULL;
+            
+            // 用来标记进位的值，如果大于等于10，则进位为1
+            int num = 0;
+            // 进行了多少次乘法运算
+            int count = 0;
+            
+            while (l1 != NULL){
+                
+                int l1Value = l1->val;
+                
+                ListNode *curL2 = l2;
+                ListNode *temp_ret_head = NULL;
+                ListNode *temp_ret_cur = NULL;
+                
+                // 每次进位需要补 0
+                if (count > 0) {
+                    ListNode *znode = new ListNode(0);
+                    temp_ret_head = znode;
+                    temp_ret_cur = znode;
+                    for(int i = 0; i < count - 1; i++) {
+                        temp_ret_cur->next = new ListNode(0);
+                        temp_ret_cur = temp_ret_cur->next;
+                    }
+                }
+                count += 1;
+                // L2 中的每个数都需要乘以 L1 中的数
+                while (curL2 != NULL) {
+                    int l2Value = curL2->val;
+                    // 需要加进位的值
+                    int muti = l1Value * l2Value + num;
+                    int value = 0;
+                    if (muti >= 10) {
+                        value = muti % 10;
+                        num = 1;
+                    } else {
+                        value = muti;
+                        num = 0;
+                    }
+                    
+                    // 创建一个节点
+                    ListNode *node = new ListNode(value);
+                    if (temp_ret_head == NULL) {
+                        temp_ret_head = node;
+                    } else {
+                        temp_ret_cur->next = node;
+                    }
+                    temp_ret_cur = node;
+                    
+                    curL2 = curL2->next;
+                }
+                // 如果进位还有值，需要再创建一个节点
+                if (num > 0) {
+                    temp_ret_cur->next = new ListNode(num);
+                }
+
+                num = 0;
+                
+                // temp 记录了每次乘法相加的结果
+                if (temp) {
+                    ListNode *ret = addTwoNumbers(temp, temp_ret_head);
+                    temp = ret;
+                } else {
+                    temp = temp_ret_head;
+                }
+                l1 = l1->next;
+            }
+            return temp;
+        }
+        
+        /**
+         大数相除
+         除法可以换成减法
+         */
+        ListNode *divTwoNumbers(ListNode *l1, ListNode *l2) {
+            // 创建头结点
+            ListNode *tempL2 = l2;
+            int index = compareLinedList(l1, l2);
+            if (index == 0) {
+                // L1 == L2
+                ListNode *node = new ListNode(1);
+                return node;
+            } else if (index == 0) {
+                // L1 < L2
+                ListNode *node = new ListNode(10);
+                return node;
+            }
+            
+            // 相解的结果
+            ListNode *sub = subTwoNumbers(l1, l2);
+            ListNode *front = NULL;
+            int count = 1;
+            while (index == 1) {
+                // 到 9 后加到结果链表中
+                if (count == 9) {
+                    ListNode *node = new ListNode(count);
+                    if (front == NULL) {
+                        front = node;
+                    } else {
+                        front = addTwoNumbers(front, node);
+                    }
+                    count = 0;
+                }
+                printLinkedList(sub);
+                ListNode *temp_sub = sub;
+                index = compareLinedList(sub, tempL2);
+                if (index == 1) {
+                    count += 1;
+                    sub = subTwoNumbers(temp_sub, tempL2);
+                } else if (index == 0) {
+                    count += 1;
+                    break;
+                } else {
+                    break;
+                }
+            }
+            
+            if (count > 0) {
+                // 结果用链表保存，防止溢出
+                ListNode *node = new ListNode(count);
+                front = addTwoNumbers(front, node);
+            }
+
+            return front;
         }
         
         /**
