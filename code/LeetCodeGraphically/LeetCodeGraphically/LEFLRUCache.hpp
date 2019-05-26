@@ -28,57 +28,66 @@ class LRUCache {
 public:
     // 创建一个元素为 pair 类型的 list
     std::list<std::pair<Key,Value> > alist;
-    // 创建一个unordered_map
+    // 创建一个 unordered_map，value 为一个迭代器
     std::unordered_map<Key, ListIterator> map;
+    // 当前大小
     int capacity;
+    // 容量
     int size;
     
+    // 初始化
     LRUCache(int maxCapacity) {
         this->capacity = 0;
         this->size = maxCapacity;
     }
 
+    // 根据 key 获取对应的 value
     int get(Key key) {
-        if (map.find(key) == map.end())
-        {
+        // 如果没找到，返回 -1
+        if (map.find(key) == map.end()) {
             return -1;
         }
-        else
-        {
-            
+        else {
+            // 找到了，先找到迭代器
             ListIterator it = map[key];
             std::pair<Key, Value> p = *it;
+            // 删除这个节点
             alist.erase(it);
-            // We update our key's iterator
+            // 把 p 插入到开始位置
             alist.insert(alist.begin(), p);
+            // 给 map 重新赋值
             map[key] = alist.begin();
+            // 返回 p 对应的值
             return p.second;
         }
     }
     
+    // 插入新值
     void put(int key, int value) {
+        // 创建一个新的 pair
         std::pair<Key, Value> p(key,value);
-        if (map.find(key) == map.end())
-        {
-            if (this->capacity == this->size)
-            {
+        // 如果没找到
+        if (map.find(key) == map.end()) {
+            // 达到了最大限制
+            if (this->capacity == this->size) {
+                // 找到链表最后一个值的 key，用来删除 map 中的值
                 Key key_to_erase = (alist.back()).first;
+                // 把链表的最后一个移除，
                 alist.pop_back();
+                // 移除 map 中 key 对应的值
                 map.erase(key_to_erase);
-            }
-            else
-            {
+            } else {
+                // 扩大当前的值
                 capacity++;
             }
-        }
-        // If we already have this specific key, we just delete it and update it
-        else
-        {
+        } else {
+            // 找到了这个值，把它删除
             ListIterator it = map[key];
             alist.erase(it);
         }
-        // We update our key's iterator
+        // 把p插入到首位
         alist.insert(alist.begin(), p);
+        // 插入到 map 中
         map[key] = alist.begin();
     }
     

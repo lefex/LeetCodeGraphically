@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 #import "LEFListSubject.hpp"
+#import "LEFLRUCache.hpp"
+#import "LEFLFUCache.cpp"
 
 @interface ViewController ()
 
@@ -32,19 +34,41 @@
     
 
     
-    LEFListSubject::ListNode *l1 = s.createLinkedList(arr, n);
-    LEFListSubject::ListNode *l2 = s.createLinkedList(arr2, n2);
+//    LEFListSubject::ListNode *l1 = s.createLinkedList(arr, n);
+//    LEFListSubject::ListNode *l2 = s.createLinkedList(arr2, n2);
     
-    int isGreater = s.compareLinedList(l1, l2);
-    NSLog(@"isGreater: %@", @(isGreater));
-    LEFListSubject::ListNode *ret = s.divTwoNumbers(l1, l2);
+//    int isGreater = s.compareLinedList(l1, l2);
+//    NSLog(@"isGreater: %@", @(isGreater));
+//    LEFListSubject::ListNode *ret = s.divTwoNumbers(l1, l2);
 //    s.printLinkedList(ret);
     
 //    [self testSum];
 //    [self testSub];
 //    [self testMuti];
-    [self testDiv];
+//    [self testDiv];
+    
+    LRUCache cache = LRUCache(10);
+    cache.useList();
+    /**
+     ["LFUCache","put","put","get","put","get","get","put","get","get","get"]
+     [[2],[1,1],[2,2],[1],[3,3],[2],[3],[4,4],[1],[3],[4]]
 
+     */
+    LFUCache lfuCache = LFUCache(3);
+    int v0 = lfuCache.get(2);
+    lfuCache.put(1, 1);
+    lfuCache.put(2, 2);
+    int v1 = lfuCache.get(1);
+    lfuCache.put(3, 3);
+    int v2 = lfuCache.get(2);
+    int v3 = lfuCache.get(3);
+    lfuCache.put(4, 4);
+    int v4 = lfuCache.get(1);
+    int v5 = lfuCache.get(3);
+    int v6 = lfuCache.get(4);
+
+    
+    printf("%d - %d - %d", v1, v2, v3);
 }
 
 // 342 + 465 = 807
