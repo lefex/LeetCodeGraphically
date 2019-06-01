@@ -10,6 +10,7 @@
 #import "LEFListSubject.hpp"
 #import "LEFLRUCache.hpp"
 #import "LEFLFUCache.cpp"
+#import "LEFHash.hpp"
 
 @interface ViewController ()
 
@@ -47,12 +48,26 @@
 //    [self testMuti];
 //    [self testDiv];
     
+    [self testHashMap];
+}
+
+- (void)testHashMap {
+    MyHashMap *map = new MyHashMap();
+    map->put(1, 10);
+    map->put(2, 20);
+    printf("map key - 2: %d", map->get(2));
+    map->remove(2);
+    printf("map key - 2: %d", map->get(2));
+    printf("map key - 1: %d", map->get(1));
+}
+
+- (void)testCache  {
     LRUCache cache = LRUCache(10);
     cache.useList();
     /**
      ["LFUCache","put","put","get","put","get","get","put","get","get","get"]
      [[2],[1,1],[2,2],[1],[3,3],[2],[3],[4,4],[1],[3],[4]]
-
+     
      */
     LFUCache lfuCache = LFUCache(3);
     int v0 = lfuCache.get(2);
@@ -66,7 +81,7 @@
     int v4 = lfuCache.get(1);
     int v5 = lfuCache.get(3);
     int v6 = lfuCache.get(4);
-
+    
     
     printf("%d - %d - %d", v1, v2, v3);
 }

@@ -15,48 +15,30 @@
 using namespace std;
 
 class MinStack {
-private:
-    stack<int> s1;
-    stack<int> s2;
 public:
-    void push(int x) {
-        s1.push(x);
-        if (s2.empty() || x <= getMin())  s2.push(x);
-    }
-    void pop() {
-        if (s1.top() == getMin())  s2.pop();
-        s1.pop();
-    }
-    int top() {
-        return s1.top();
-    }
-    int getMin() {
-        return s2.top();
-    }
-};
-
-class LMinStack {
-public:
+    // 主栈，保存了所有的元素
     stack<int> mainStack;
+    // 保存比较小的元素
     stack<int> minStack;
+    // 入栈
     void push(int x) {
         mainStack.push(x);
         if (minStack.empty() || x <= getMin()) {
             minStack.push(x);
         }
     }
-    
+    // 出栈
     void pop() {
         if (mainStack.top() == getMin()) {
             minStack.pop();
         }
         mainStack.pop();
     }
-    
+    // 栈顶
     int top() {
         return mainStack.top();
     }
-    
+    // 最小值
     int getMin() {
        return minStack.top();
     }
