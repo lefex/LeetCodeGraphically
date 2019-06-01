@@ -66,17 +66,17 @@
 			children = (
 				34145F17227889D000502779 /* AppDelegate.h */,
 				34145F18227889D000502779 /* AppDelegate.m */,
-				34145F1A227889D000502779 /* ViewController.h */,
-				34145F1B227889D000502779 /* ViewController.mm */,
+				34145F20227889D600502779 /* Assets.xcassets */,
+				34145F25227889D600502779 /* Info.plist */,
+				34145F22227889D600502779 /* LaunchScreen.storyboard */,
 				34145F2D227889FA00502779 /* LEFListSubject.cpp */,
 				34145F30227889FA00502779 /* LEFListSubject.hpp */,
 				34145F2E227889FA00502779 /* LEFSortManager.h */,
 				34145F2F227889FA00502779 /* LEFSortManager.m */,
-				34145F1D227889D000502779 /* Main.storyboard */,
-				34145F20227889D600502779 /* Assets.xcassets */,
-				34145F22227889D600502779 /* LaunchScreen.storyboard */,
-				34145F25227889D600502779 /* Info.plist */,
 				34145F26227889D600502779 /* main.m */,
+				34145F1D227889D000502779 /* Main.storyboard */,
+				34145F1A227889D000502779 /* ViewController.h */,
+				34145F1B227889D000502779 /* ViewController.mm */,
 			);
 			path = LeetCodeGraphically;
 			sourceTree = "<group>";
