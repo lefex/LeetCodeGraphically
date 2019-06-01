@@ -15,6 +15,9 @@
 		34145F27227889D600502779 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 34145F26227889D600502779 /* main.m */; };
 		34145F31227889FA00502779 /* LEFListSubject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34145F2D227889FA00502779 /* LEFListSubject.cpp */; };
 		34145F32227889FA00502779 /* LEFSortManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34145F2F227889FA00502779 /* LEFSortManager.m */; };
+		3415809A2284FA3200AE3F4D /* LEFLRUCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 341580982284FA3100AE3F4D /* LEFLRUCache.cpp */; };
+		3415809D2299237C00AE3F4D /* LEFLFUCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3415809B2299237C00AE3F4D /* LEFLFUCache.cpp */; };
+		342329BD229A2D8A00BE08DC /* LEFStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 342329BB229A2D8A00BE08DC /* LEFStack.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,12 @@
 		34145F2E227889FA00502779 /* LEFSortManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEFSortManager.h; sourceTree = "<group>"; };
 		34145F2F227889FA00502779 /* LEFSortManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEFSortManager.m; sourceTree = "<group>"; };
 		34145F30227889FA00502779 /* LEFListSubject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LEFListSubject.hpp; sourceTree = "<group>"; };
+		341580982284FA3100AE3F4D /* LEFLRUCache.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LEFLRUCache.cpp; sourceTree = "<group>"; };
+		341580992284FA3100AE3F4D /* LEFLRUCache.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LEFLRUCache.hpp; sourceTree = "<group>"; };
+		3415809B2299237C00AE3F4D /* LEFLFUCache.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LEFLFUCache.cpp; sourceTree = "<group>"; };
+		3415809C2299237C00AE3F4D /* LEFLFUCache.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LEFLFUCache.hpp; sourceTree = "<group>"; };
+		342329BB229A2D8A00BE08DC /* LEFStack.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LEFStack.cpp; sourceTree = "<group>"; };
+		342329BC229A2D8A00BE08DC /* LEFStack.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LEFStack.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +86,12 @@
 				34145F1D227889D000502779 /* Main.storyboard */,
 				34145F1A227889D000502779 /* ViewController.h */,
 				34145F1B227889D000502779 /* ViewController.mm */,
+				341580982284FA3100AE3F4D /* LEFLRUCache.cpp */,
+				341580992284FA3100AE3F4D /* LEFLRUCache.hpp */,
+				3415809B2299237C00AE3F4D /* LEFLFUCache.cpp */,
+				3415809C2299237C00AE3F4D /* LEFLFUCache.hpp */,
+				342329BB229A2D8A00BE08DC /* LEFStack.cpp */,
+				342329BC229A2D8A00BE08DC /* LEFStack.hpp */,
 			);
 			path = LeetCodeGraphically;
 			sourceTree = "<group>";
@@ -152,7 +167,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				34145F1C227889D000502779 /* ViewController.mm in Sources */,
+				3415809D2299237C00AE3F4D /* LEFLFUCache.cpp in Sources */,
+				342329BD229A2D8A00BE08DC /* LEFStack.cpp in Sources */,
 				34145F27227889D600502779 /* main.m in Sources */,
+				3415809A2284FA3200AE3F4D /* LEFLRUCache.cpp in Sources */,
 				34145F32227889FA00502779 /* LEFSortManager.m in Sources */,
 				34145F31227889FA00502779 /* LEFListSubject.cpp in Sources */,
 				34145F19227889D000502779 /* AppDelegate.m in Sources */,

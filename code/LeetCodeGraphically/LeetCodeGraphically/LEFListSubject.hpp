@@ -51,6 +51,61 @@ namespace LEFListSubject {
             cout << "NULL" << endl;
         }
         
+        int compareLinedList(ListNode *l1, ListNode *l2) {
+            int len1 = 0;
+            int len2 = 0;
+            ListNode *curL1 = l1;
+            ListNode *curL2 = l2;
+            bool iszero1 = true;
+            bool iszero2 = true;
+            while (curL1) {
+                if (curL1->val != 0) {
+                    iszero1 = false;
+                }
+                curL1 = curL1->next;
+                len1 += 1;
+            }
+            while (curL2) {
+                if (curL2->val != 0) {
+                    iszero2 = false;
+                }
+                curL2 = curL2->next;
+                len2 += 1;
+            }
+            
+            if (iszero1 && iszero2) {
+                return 0;
+            } else if (iszero1) {
+                return -1;
+            } else if (iszero2) {
+                return 1;
+            }
+            
+            if (len1 > len2) {
+                return 1;
+            } else if (len1 < len2) {
+                return -1;
+            } else {
+                curL1 = l1;
+                curL2 = l2;
+                while (curL1 && curL2) {
+                    if (curL1->val > curL2->val) {
+                        return 1;
+                    } else if (curL1->val < curL2->val) {
+                        return -1;
+                    }
+                    curL1 = curL1->next;
+                    curL2 = curL2->next;
+                }
+                return 0;
+            }
+        }
+        
+        bool isGreaterThan(ListNode *l1, ListNode *l2) {
+            int index = compareLinedList(l1, l2);
+            return index == 1;
+        }
+        
         /**
          合并两个有序的单链表
          l1 = 1-2-4
@@ -238,7 +293,194 @@ namespace LEFListSubject {
                 rear->next = new ListNode(num);
             }
             return front;
+        }
+        
+        /**
+         大数相减
+         456 - 123 = 333
+         6-5-4
+         3-2-1
+         如果 l1 > l2,  l1-l2, 否则 l2-l1，结果为负
+         */
+        ListNode *subTwoNumbers(ListNode *l1, ListNode *l2) {
+            // 创建头结点
+            ListNode *front = NULL;
+            // 创建尾结点
+            ListNode *rear = NULL;
             
+            // 用来标记进位的值，如果大于等于10，则进位为1
+            int num = 0;
+            
+            while (l1 != NULL || l2 != NULL) {
+                int l1Value = 0;
+                if (l1 != NULL) {
+                    l1Value = l1->val;
+                    l1 = l1->next;
+                }
+                int l2Value = 0;
+                if (l2 != NULL) {
+                    l2Value = l2->val;
+                    l2 = l2->next;
+                }
+                
+                int sub = 0;
+                // 需要减去借位的值
+                l1Value = l1Value - num;
+                if (l1Value >= l2Value) {
+                    // 直接做减法运算
+                    sub = l1Value - l2Value;
+                    num = 0;
+                } else {
+                    // 借 10 再减去 l2Value
+                    sub = l1Value + 10 - l2Value;
+                    num = 1;
+                }
+                
+                // 创建一个节点
+                ListNode *node = new ListNode(sub);
+                if (front == NULL) {
+                    front = node;
+                } else {
+                    rear->next = node;
+                }
+                rear = node;
+            }
+            return front;
+        }
+        
+        /**
+         大数相乘
+         456 - 123 = 333
+         6-5-4
+         3-2-1
+         如果 l1 > l2,  l1-l2, 否则 l2-l1，结果为负
+         */
+        ListNode *multTwoNumbers(ListNode *l1, ListNode *l2) {
+            // 记录中间结果的和
+            ListNode *temp = NULL;
+            
+            // 用来标记进位的值，如果大于等于10，则进位为1
+            int num = 0;
+            // 进行了多少次乘法运算
+            int count = 0;
+            
+            while (l1 != NULL){
+                
+                int l1Value = l1->val;
+                
+                ListNode *curL2 = l2;
+                ListNode *temp_ret_head = NULL;
+                ListNode *temp_ret_cur = NULL;
+                
+                // 每次进位需要补 0
+                if (count > 0) {
+                    ListNode *znode = new ListNode(0);
+                    temp_ret_head = znode;
+                    temp_ret_cur = znode;
+                    for(int i = 0; i < count - 1; i++) {
+                        temp_ret_cur->next = new ListNode(0);
+                        temp_ret_cur = temp_ret_cur->next;
+                    }
+                }
+                count += 1;
+                // L2 中的每个数都需要乘以 L1 中的数
+                while (curL2 != NULL) {
+                    int l2Value = curL2->val;
+                    // 需要加进位的值
+                    int muti = l1Value * l2Value + num;
+                    int value = 0;
+                    if (muti >= 10) {
+                        value = muti % 10;
+                        num = 1;
+                    } else {
+                        value = muti;
+                        num = 0;
+                    }
+                    
+                    // 创建一个节点
+                    ListNode *node = new ListNode(value);
+                    if (temp_ret_head == NULL) {
+                        temp_ret_head = node;
+                    } else {
+                        temp_ret_cur->next = node;
+                    }
+                    temp_ret_cur = node;
+                    
+                    curL2 = curL2->next;
+                }
+                // 如果进位还有值，需要再创建一个节点
+                if (num > 0) {
+                    temp_ret_cur->next = new ListNode(num);
+                }
+
+                num = 0;
+                
+                // temp 记录了每次乘法相加的结果
+                if (temp) {
+                    ListNode *ret = addTwoNumbers(temp, temp_ret_head);
+                    temp = ret;
+                } else {
+                    temp = temp_ret_head;
+                }
+                l1 = l1->next;
+            }
+            return temp;
+        }
+        
+        /**
+         大数相除
+         除法可以换成减法
+         */
+        ListNode *divTwoNumbers(ListNode *l1, ListNode *l2) {
+            // 创建头结点
+            ListNode *tempL2 = l2;
+            int index = compareLinedList(l1, l2);
+            if (index == 0) {
+                // L1 == L2
+                ListNode *node = new ListNode(1);
+                return node;
+            } else if (index == 0) {
+                // L1 < L2
+                ListNode *node = new ListNode(10);
+                return node;
+            }
+            
+            // 相解的结果
+            ListNode *sub = subTwoNumbers(l1, l2);
+            ListNode *front = NULL;
+            int count = 1;
+            while (index == 1) {
+                // 到 9 后加到结果链表中
+                if (count == 9) {
+                    ListNode *node = new ListNode(count);
+                    if (front == NULL) {
+                        front = node;
+                    } else {
+                        front = addTwoNumbers(front, node);
+                    }
+                    count = 0;
+                }
+                printLinkedList(sub);
+                ListNode *temp_sub = sub;
+                index = compareLinedList(sub, tempL2);
+                if (index == 1) {
+                    count += 1;
+                    sub = subTwoNumbers(temp_sub, tempL2);
+                } else if (index == 0) {
+                    count += 1;
+                    break;
+                } else {
+                    break;
+                }
+            }
+            
+            if (count > 0) {
+                // 结果用链表保存，防止溢出
+                ListNode *node = new ListNode(count);
+                front = addTwoNumbers(front, node);
+            }
+
+            return front;
         }
         
         /**
@@ -363,18 +605,12 @@ namespace LEFListSubject {
          Do not return anything from your function.
          */
         void deleteNode(ListNode* node) {
-            // 记录上一个节点
-            ListNode *last = NULL;
-            while (node) {
-                // 最后一个节点，不为空
-                if (node->next) {
-                    node->val = node->next->val;
-                } else {
-                    last->next = NULL;
-                }
-                last = node;
-                node = node->next;
-            }
+            // 下一个节点的值赋值给被删除的节点
+            node->val = node->next->val;
+            ListNode *delNode = node->next;
+            node->next = node->next->next;
+            // 释放删除节点的内存空间
+            delete delNode;
         }
         
         
@@ -390,10 +626,16 @@ namespace LEFListSubject {
 
          */
         ListNode* removeElements(ListNode* head, int val) {
-            //
+            // 结果节点的当前节点
             ListNode *cur = NULL;
+            // 结果节点的头节点
             ListNode *rHead = NULL;
             while (head) {
+                // 防止断链
+                ListNode *temp = head->next;
+                // 使得当前节点的next为空
+                head->next = NULL;
+                // 如果值不等，就插入到结果链表中
                 if (head->val != val) {
                     if (!rHead) {
                         rHead = head;
@@ -402,13 +644,8 @@ namespace LEFListSubject {
                         cur->next = head;
                         cur = cur->next;
                     }
-                } else {
-                    // 1->null 1
-                    if (cur && cur->next) {
-                        cur->next = NULL;
-                    }
                 }
-                head = head->next;
+                head = temp;
             }
             return rHead;
         }
@@ -597,15 +834,15 @@ namespace LEFListSubject {
             }
             int listNum = 1;
             ListNode *tail = head;
-            
-            //find tail and count listNum
+            // 计算链表的长度
             while(tail->next != NULL){
                 listNum++;
                 tail = tail->next;
             }
+            // 形成一个环
             tail->next = head;
             int newHeadIndex = listNum - k % listNum;
-            
+            // tail 移动 newHeadIndex 次
             for(int i = 0; i < newHeadIndex; i++){
                 tail = tail->next;
             }
@@ -624,9 +861,84 @@ namespace LEFListSubject {
          Given a linked list, determine if it has a cycle in it.
          
          To represent a cycle in the given linked list, we use an integer pos which represents the position (0-indexed) in the linked list where tail connects to. If pos is -1, then there is no cycle in the linked list.
+         
+         Runtime: 12 ms, faster than 99.17% of C++ online submissions for Linked List Cycle.
+         Memory Usage: 9.8 MB, less than 23.77% of C++ online submissions for Linked List Cycle.
+         Next challenges:
+         
+         快慢指针，比作一个环形操场的跑道，快的和慢的总会相遇
          */
         bool hasCycle(ListNode *head) {
+            if (head == NULL || head->next == NULL) {
+                return false;
+            }
+            // 慢指针每次移动一个节点
+            ListNode *slow = head;
+            // 快指针每次移动2个节点
+            ListNode *fast = head;
+            while (fast != NULL && fast->next != NULL) {
+                slow = slow->next;
+                fast = fast->next->next;
+                // 如果快慢指针相遇，则有环
+                if (slow == fast) {
+                    return true;
+                }
+            }
             return false;
+        }
+        
+        /**
+         Given a linked list, return the node where the cycle begins. If there is no cycle, return null.
+         */
+        ListNode *detectCycle(ListNode *head) {
+            if (head == NULL || head->next == NULL) {
+                return NULL;
+            }
+            ListNode *slow = head;
+            ListNode *fast = head;
+            while (fast != NULL && fast->next != NULL) {
+                slow = slow->next;
+                fast = fast->next->next;
+                if (slow == fast) {
+                    break;
+                }
+            }
+            
+            slow = head;
+            while (slow != fast) {
+                slow = slow->next;
+                fast = fast->next;
+            }
+            
+            return slow;
+        }
+        
+        /**
+         求两个链表的交点
+         Write a program to find the node at which the intersection of two singly linked lists begins.
+            1-2-3-4
+         10-9-8-3-7-6
+         */
+        ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+            if (headA == NULL || headB == NULL) {
+                return NULL;
+            }
+            ListNode *pa = headA;
+            ListNode *pb = headB;
+            while (pb != pa) {
+                if (pa == NULL) {
+                    pa = headB;
+                } else {
+                    pa = pa->next;
+                }
+                
+                if (pb == NULL) {
+                    pb = headA;
+                } else {
+                    pb = pb->next;
+                }
+            }
+            return pb;
         }
     };
 }
