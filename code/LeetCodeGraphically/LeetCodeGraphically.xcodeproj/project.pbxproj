@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23EAA4EB22B4F76B008CCC3C /* DataStructer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 23EAA4EA22B4F76B008CCC3C /* DataStructer.cpp */; };
 		34145F19227889D000502779 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 34145F18227889D000502779 /* AppDelegate.m */; };
 		34145F1C227889D000502779 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 34145F1B227889D000502779 /* ViewController.mm */; };
 		34145F1F227889D000502779 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34145F1D227889D000502779 /* Main.storyboard */; };
@@ -26,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		23EAA4E922B4F76B008CCC3C /* DataStructer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DataStructer.hpp; sourceTree = "<group>"; };
+		23EAA4EA22B4F76B008CCC3C /* DataStructer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DataStructer.cpp; sourceTree = "<group>"; };
 		34145F14227889CF00502779 /* LeetCodeGraphically.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeetCodeGraphically.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34145F17227889D000502779 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		34145F18227889D000502779 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -117,6 +120,8 @@
 				3487006F22A369A90098D93B /* LEFTreeSubject.hpp */,
 				34274F2522A4A28A002D4489 /* LEFRecursion.cpp */,
 				34274F2622A4A28A002D4489 /* LEFRecursion.hpp */,
+				23EAA4EA22B4F76B008CCC3C /* DataStructer.cpp */,
+				23EAA4E922B4F76B008CCC3C /* DataStructer.hpp */,
 			);
 			path = LeetCodeGraphically;
 			sourceTree = "<group>";
@@ -195,6 +200,7 @@
 				3415809D2299237C00AE3F4D /* LEFLFUCache.cpp in Sources */,
 				3487007022A369A90098D93B /* LEFTreeSubject.cpp in Sources */,
 				342329BD229A2D8A00BE08DC /* LEFStack.cpp in Sources */,
+				23EAA4EB22B4F76B008CCC3C /* DataStructer.cpp in Sources */,
 				34145F27227889D600502779 /* main.m in Sources */,
 				34274F2722A4A28A002D4489 /* LEFRecursion.cpp in Sources */,
 				342329C0229ACEBD00BE08DC /* LEFQueue.cpp in Sources */,
