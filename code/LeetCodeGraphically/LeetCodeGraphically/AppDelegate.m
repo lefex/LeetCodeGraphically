@@ -18,9 +18,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    NSString *name = @"Lefe_x";
-    NSString *des = @"超越技术公众号做图解算法";
-    NSLog(@"hash(name) = %@, hash(des)=%@", @(name.hash), @(des.hash));
+    NSString *name = @"超越技术";
+    NSData  *nameData = [name dataUsingEncoding:NSUTF8StringEncoding];
+    NSLog(@"nameData: %@", nameData);
+    NSString *eName = @"lefe";
+    NSData *eNameData = [eName dataUsingEncoding:NSUTF8StringEncoding];
+    NSLog(@"eNameData: %@", eNameData);
+
     return YES;
 }
 

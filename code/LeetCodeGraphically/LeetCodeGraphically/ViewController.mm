@@ -11,6 +11,7 @@
 #import "LEFLRUCache.hpp"
 #import "LEFLFUCache.cpp"
 #import "LEFHash.hpp"
+#import "LEFRecursion.hpp"
 
 @interface ViewController ()
 
@@ -48,7 +49,15 @@
 //    [self testMuti];
 //    [self testDiv];
     
-    [self testHashMap];
+//    [self testHashMap];
+    [self testRecursion];
+}
+
+- (void)testRecursion {
+    Recursion *add = new Recursion();
+    int a[6] = {1, 2, 3, 4, 5, 10};
+    printf("sum: %d", add->sum(a));
+
 }
 
 - (void)testHashMap {
