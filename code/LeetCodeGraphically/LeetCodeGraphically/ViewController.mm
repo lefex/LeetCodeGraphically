@@ -12,6 +12,8 @@
 #import "LEFLFUCache.cpp"
 #import "LEFHash.hpp"
 #import "LEFRecursion.hpp"
+#import "DataStructer.hpp"
+#import "MaxHeap.hpp"
 
 @interface ViewController ()
 
@@ -21,6 +23,48 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    HeapSolution hs;
+    vector<int> v {1,1,2,2,2,3};
+    hs.topKFrequent(v, 2);
+    
+    return;
+
+    
+    int harr[] = {10,20,30,100};
+    MaxHeap h2 = MaxHeap(harr, 4);
+    h2.printHeap();
+    
+    
+    MaxHeap heap;
+    heap.add(10);
+    heap.add(20);
+    heap.add(30);
+    heap.add(28);
+    heap.add(40);
+    heap.add(4);
+    heap.add(100);
+    heap.printHeap();
+    
+
+    
+    NSLog(@"max: %@", @(heap.pop_max()));
+    heap.printHeap();
+    NSLog(@"max: %@", @(heap.pop_max()));
+    heap.printHeap();
+    NSLog(@"max: %@", @(heap.pop_max()));
+    heap.printHeap();
+    NSLog(@"max: %@", @(heap.pop_max()));
+    heap.printHeap();
+    NSLog(@"max: %@", @(heap.pop_max()));
+    heap.printHeap();
+    
+
+
+    
+    return;
+    DataStructer ds;
+    ds.testSet();
     
     LEFListSubject::Soulation s;
     //
