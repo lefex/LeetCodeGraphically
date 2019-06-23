@@ -15,12 +15,65 @@
 
 @implementation AppDelegate
 
+static NSString * AFBase64EncodedStringFromString(NSString *string) {
+    NSData *data = [NSData dataWithBytes:[string UTF8String] length:[string lengthOfBytesUsingEncoding:NSUTF8StringEncoding]];
+    NSUInteger length = [data length];
+    NSMutableData *mutableData = [NSMutableData dataWithLength:((length + 2) / 3) * 4];
+    
+    uint8_t *input = (uint8_t *)[data bytes];
+    uint8_t *output = (uint8_t *)[mutableData mutableBytes];
+    
+    for (NSUInteger i = 0; i < length; i += 3) {
+        NSUInteger value = 0;
+        for (NSUInteger j = i; j < (i + 3); j++) {
+            value <<= 8;
+            if (j < length) {
+                value |= (0xFF & input[j]);
+            }
+        }
+        
+        static uint8_t const kAFBase64EncodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+        
+        NSUInteger idx = (i / 3) * 4;
+        output[idx + 0] = kAFBase64EncodingTable[(value >> 18) & 0x3F];
+        output[idx + 1] = kAFBase64EncodingTable[(value >> 12) & 0x3F];
+        output[idx + 2] = (i + 1) < length ? kAFBase64EncodingTable[(value >> 6)  & 0x3F] : '=';
+        output[idx + 3] = (i + 2) < length ? kAFBase64EncodingTable[(value >> 0)  & 0x3F] : '=';
+    }
+    
+    return [[NSString alloc] initWithData:mutableData encoding:NSASCIIStringEncoding];
+}
+
+-(NSString *)base64DecodeString:(NSString *)string {
+    //先将string转换成data
+    NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSData *base64Data = [data base64EncodedDataWithOptions:0];
+    
+    NSString *baseString = [[NSString alloc]initWithData:base64Data encoding:NSUTF8StringEncoding];
+    
+    return baseString;
+}
+
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    NSString *name = @"Lefe_x";
-    NSString *des = @"超越技术公众号做图解算法";
-    NSLog(@"hash(name) = %@, hash(des)=%@", @(name.hash), @(des.hash));
+    NSString *name = @"超越技术";
+    NSData  *nameData = [name dataUsingEncoding:NSUTF8StringEncoding];
+    NSLog(@"nameData: %@", nameData);
+    NSString *eName = @"lefe";
+    NSData *eNameData = [eName dataUsingEncoding:NSUTF8StringEncoding];
+    NSLog(@"eNameData: %@", eNameData);
+    
+    NSString *bString = @"le";
+    
+    NSString *base64 = AFBase64EncodedStringFromString(bString);
+    NSLog(@"base64:%@", base64);
+    
+    NSString *base642 = [self base64DecodeString:bString];
+    NSLog(@"base642:%@", base642);
+
     return YES;
 }
 

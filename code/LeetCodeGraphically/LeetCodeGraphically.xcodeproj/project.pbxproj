@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		23EAA4EB22B4F76B008CCC3C /* DataStructer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 23EAA4EA22B4F76B008CCC3C /* DataStructer.cpp */; };
+		34143B6522B61B08003BC474 /* MaxHeap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34143B6322B61B08003BC474 /* MaxHeap.cpp */; };
 		34145F19227889D000502779 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 34145F18227889D000502779 /* AppDelegate.m */; };
 		34145F1C227889D000502779 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 34145F1B227889D000502779 /* ViewController.mm */; };
 		34145F1F227889D000502779 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34145F1D227889D000502779 /* Main.storyboard */; };
@@ -20,13 +21,17 @@
 		3415809D2299237C00AE3F4D /* LEFLFUCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3415809B2299237C00AE3F4D /* LEFLFUCache.cpp */; };
 		342329BD229A2D8A00BE08DC /* LEFStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 342329BB229A2D8A00BE08DC /* LEFStack.cpp */; };
 		342329C0229ACEBD00BE08DC /* LEFQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 342329BE229ACEBD00BE08DC /* LEFQueue.cpp */; };
+		34274F2722A4A28A002D4489 /* LEFRecursion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34274F2522A4A28A002D4489 /* LEFRecursion.cpp */; };
 		3432D0B6229E06CD006CCDA5 /* LEFHash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3432D0B4229E06CD006CCDA5 /* LEFHash.cpp */; };
 		3487006D22A26BE70098D93B /* LEFStringSubject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3487006B22A26BE70098D93B /* LEFStringSubject.cpp */; };
+		3487007022A369A90098D93B /* LEFTreeSubject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3487006E22A369A90098D93B /* LEFTreeSubject.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		23EAA4E922B4F76B008CCC3C /* DataStructer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DataStructer.hpp; sourceTree = "<group>"; };
 		23EAA4EA22B4F76B008CCC3C /* DataStructer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DataStructer.cpp; sourceTree = "<group>"; };
+		34143B6322B61B08003BC474 /* MaxHeap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MaxHeap.cpp; sourceTree = "<group>"; };
+		34143B6422B61B08003BC474 /* MaxHeap.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MaxHeap.hpp; sourceTree = "<group>"; };
 		34145F14227889CF00502779 /* LeetCodeGraphically.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeetCodeGraphically.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34145F17227889D000502779 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		34145F18227889D000502779 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -49,10 +54,14 @@
 		342329BC229A2D8A00BE08DC /* LEFStack.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LEFStack.hpp; sourceTree = "<group>"; };
 		342329BE229ACEBD00BE08DC /* LEFQueue.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LEFQueue.cpp; sourceTree = "<group>"; };
 		342329BF229ACEBD00BE08DC /* LEFQueue.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LEFQueue.hpp; sourceTree = "<group>"; };
+		34274F2522A4A28A002D4489 /* LEFRecursion.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LEFRecursion.cpp; sourceTree = "<group>"; };
+		34274F2622A4A28A002D4489 /* LEFRecursion.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LEFRecursion.hpp; sourceTree = "<group>"; };
 		3432D0B4229E06CD006CCDA5 /* LEFHash.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LEFHash.cpp; sourceTree = "<group>"; };
 		3432D0B5229E06CD006CCDA5 /* LEFHash.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LEFHash.hpp; sourceTree = "<group>"; };
 		3487006B22A26BE70098D93B /* LEFStringSubject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LEFStringSubject.cpp; sourceTree = "<group>"; };
 		3487006C22A26BE70098D93B /* LEFStringSubject.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LEFStringSubject.hpp; sourceTree = "<group>"; };
+		3487006E22A369A90098D93B /* LEFTreeSubject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LEFTreeSubject.cpp; sourceTree = "<group>"; };
+		3487006F22A369A90098D93B /* LEFTreeSubject.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LEFTreeSubject.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,8 +119,14 @@
 				3432D0B5229E06CD006CCDA5 /* LEFHash.hpp */,
 				3487006B22A26BE70098D93B /* LEFStringSubject.cpp */,
 				3487006C22A26BE70098D93B /* LEFStringSubject.hpp */,
+				3487006E22A369A90098D93B /* LEFTreeSubject.cpp */,
+				3487006F22A369A90098D93B /* LEFTreeSubject.hpp */,
+				34274F2522A4A28A002D4489 /* LEFRecursion.cpp */,
+				34274F2622A4A28A002D4489 /* LEFRecursion.hpp */,
 				23EAA4EA22B4F76B008CCC3C /* DataStructer.cpp */,
 				23EAA4E922B4F76B008CCC3C /* DataStructer.hpp */,
+				34143B6322B61B08003BC474 /* MaxHeap.cpp */,
+				34143B6422B61B08003BC474 /* MaxHeap.hpp */,
 			);
 			path = LeetCodeGraphically;
 			sourceTree = "<group>";
@@ -187,10 +202,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				34145F1C227889D000502779 /* ViewController.mm in Sources */,
+				34143B6522B61B08003BC474 /* MaxHeap.cpp in Sources */,
 				3415809D2299237C00AE3F4D /* LEFLFUCache.cpp in Sources */,
+				3487007022A369A90098D93B /* LEFTreeSubject.cpp in Sources */,
 				342329BD229A2D8A00BE08DC /* LEFStack.cpp in Sources */,
 				23EAA4EB22B4F76B008CCC3C /* DataStructer.cpp in Sources */,
 				34145F27227889D600502779 /* main.m in Sources */,
+				34274F2722A4A28A002D4489 /* LEFRecursion.cpp in Sources */,
 				342329C0229ACEBD00BE08DC /* LEFQueue.cpp in Sources */,
 				3415809A2284FA3200AE3F4D /* LEFLRUCache.cpp in Sources */,
 				3487006D22A26BE70098D93B /* LEFStringSubject.cpp in Sources */,
