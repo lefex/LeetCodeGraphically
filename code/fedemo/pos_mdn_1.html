@@ -25,14 +25,6 @@
         }
 
         .positioned {
-            /* 
-            static 默认的，还按正常的流进行布局
-            relative 需要有 top, bottom, left, and right 配合使用。在正常的流式布局中应该偏移的位置，元素任然在流中
-            absolute 元素脱离了正常的流，不会影响其它流的布局，比如弹窗菜单
-             */
-            position: static;
-            top: 30px;
-            left: 30px;
             background: yellow;
         }
     </style>
@@ -40,14 +32,10 @@
 
 <body>
     <h1>Web布局方式</h1>
-
     <p>我是一个 p 标签</p>
-
     <p class="positioned">我也是一个 p 标签</p>
-
     <p>我还是一个 p 标签</p>
-
-    <p >我是 p <span>我是 span 标签</span> and <span>我是 span 标签</span> 哈哈</p>
+    <p>我是 p <span>我是 span 标签</span> and <span>我是 span 标签</span> 哈哈</p>
 
 </body>
 
