@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- meta 提供有关页面的基本信息 -->
+	<meta charset="UTF-8">
+	<!-- 3秒后跳到baidu -->
+	<!-- <meta http-equiv="refresh" content="3;http://www.baidu.com"> -->
+	<!-- 这些关键词，就是告诉搜索引擎，这个网页是干嘛的，能够提高搜索命中率。让别人能够找到你，搜索到你。 -->
+	<meta name="Keywords" content="网易,邮箱,游戏,新闻,体育,娱乐,女性,亚运,论坛,短信" />
+	<!-- 只要设置Description页面描述，那么百度搜索结果，就能够显示这些语句，这个技术叫做SEO（search engine optimization，搜索引擎优化）。 -->
+	<meta name="Description" content="网易是中国领先的互联网技术公司，及博交流，网聚人的力量。" />
+
+	<title></title>
+	<style type="text/css">
+		div {
+			border: 1px solid red;
+			padding: 0px;
+		}
+
+		body {
+			padding-left: 20px;
+			padding-right: 20px;
+			padding-top: 0;
+			padding-bottom: 20px;
+			margin: 0 auto;
+			background-color: #E2E2E2;
+			color: #595B66;
+			font-family: 'Microsoft Yahei', sans-serif;
+		}
+
+		/*webkit内核浏览器需要加：-webkit前缀*/
+		.box-main {
+			display: flex;
+			display: -webkit-flex;
+			/* Safari */
+			flex-direction: column;
+			align-items: flex-start;
+			align-content: center;
+		}
+
+		.box-header {
+			height: 300px;
+			width: 100%;
+			align-self: center;
+			background-color: #4A90E2;
+		}
+
+		.box-footer {
+			height: 150px;
+			width: 100%;
+		}
+
+		.box-content {
+			display: flex;
+			display: -webkit-flex;
+			/* Safari */
+			height: 900px;
+			width: 100%;
+
+		}
+
+		.box-left {
+			height: 100%;
+			/*width: 70%;*/
+		}
+
+		.box-right {
+			height: 100%;
+			width: 500px;
+		}
+
+		.right-item-box {
+			margin: 5px;
+			width: 100% - 10;
+			height: 300px;
+		}
+
+		#header-title {
+			text-align: center;
+			color: white;
+			font-weight: bold;
+			font-size: 50px;
+		}
+
+		#header-subtitle {
+			text-align: center;
+			color: white;
+			font-size: 26px;
+			word-spacing: 14px;
+		}
+
+		.content-item-box {
+			display: flex;
+			display: -webkit-flex;
+			/* Safari */
+			flex-direction: row;
+			width: 100% - 10;
+			height: 140px;
+			margin: 5px;
+		}
+
+		.content-cover {
+			width: 120px;
+			height: 120px;
+			margin: 10px;
+			flex-shrink: 0;
+		}
+
+		.content-item-box2 {
+			display: flex;
+			display: -webkit-flex;
+			/* Safari */
+			flex-direction: column;
+			width: 300px;
+		}
+
+		.content-title {
+			width: 100%;
+			height: 30%;
+		}
+
+		.content-detail {
+			width: 100%;
+			height: 50%;
+		}
+
+		#detail {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: wrap;
+		}
+	</style>
+</head>
+<!-- link="blue" alink="green" vlink="red" 链接样式 -->
+<body>
+	<div class="box-main">
+		<div class="box-header" id="header">
+			<h1 id="header-title">Hello world</h1>
+			<h3 id="header-subtitle">些其它问题就会更加容易。说明：这是一篇Rxjava源码分析的入门文章</h3>
+		</div>
+		<div class="box-content">
+			<div class="box-left">
+				<div class="content-item-box">
+					<div class="content-cover">
+						<!-- 图标标签 src可以是本地图，可以是网络，相对、绝对路径都可以 
+							如果要想保证图片等比例缩放，请只设置width和height中其中一个 -->
+						<img width="120px" height="120px" src="http://imgs.jushuo.com/editor/2018-12-05/5c07a6f415099.jpg">
+					</div>
+					<div class="cotent-item-box2">
+						<div class="content-title">
+							<p>是什么让我们阅读RxJava源码如此艰难？</p>
+						</div>
+						<div class="content-detail detail">
+							本文我把Rxjava的各种封装、抽象统统剥去，只专注于基本的事件变换。在理解了事件变换大概是做了件什么事情时，再去看源码，考虑一些其它问题就会更加容易。说明：这是一篇Rxjava源码分析的入门文章。
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="box-right">
+				<div class="right-item-box"></div>
+				<div class="right-item-box"></div>
+				<a href="#">点我</a>
+			</div>
+		</div>
+		<div class="box-footer"></div>
+	</div>
+</body>
+
+</html>

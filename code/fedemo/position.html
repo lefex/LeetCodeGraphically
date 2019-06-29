@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Position布局</title>
+    <style>
+        /* 清楚默认的边界 */
+        /* 
+        基本的布局：
+        1.标准流，每个块元素占有一行，以流的方式布局
+        2.position 布局
+        3.box盒子模型
+        4.flex 布局
+        5.grid 布局
+         */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .div1 {
+            /* 
+            static: 对象遵循标准文档流中，top, right, bottom, left 等属性失效
+            relative: 对象遵循标准文档流中，依赖top, right, bottom, left 等属性相对于该对象在标准文档流中的位置进行偏移，同时可通过z-index定义层叠关系
+            absolute:对象脱离标准文档流，使用top, right, bottom, left 等属性进行绝对定位（相对于static定位以外的第一个父元素进行绝对定位）
+            fixed（固定定位） 对象脱离标准文档流，使用top, right, bottom, left 等属性进行绝对定位（相对于浏览器窗口进行绝对定位）同时可通过z-index定义层叠关系
+             */
+            position: relative;
+            width: 100px;
+            height: 100px;
+            top: 100px;
+            left: 100px;
+            background-color: rebeccapurple;
+        }
+        .div2 {
+            /* position: relative; */
+            width: 100px;
+            height: 100px;
+            top: 100px;
+            left: 100px;
+            background-color: red;
+        }
+        .div3 {
+            /* position: relative; */
+            width: 100px;
+            height: 100px;
+            top: 100px;
+            left: 100px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1"></div>
+    <div class="div2"></div>
+    <div class="div3"></div>
+</body>
+</html>

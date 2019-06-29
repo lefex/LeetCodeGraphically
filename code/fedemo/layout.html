@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>布局</title>
+	<style type="text/css">
+	  *{
+		 margin: 0;
+		 padding: 0;
+	  }
+	  .wrapper {
+	  	width: 960px;
+	  	margin-left: auto;
+	  	margin-right: auto;
+	  	color: #fff;
+	  	font-size: 30px;
+	  	text-align: center;
+	  }
+	  #header {
+	  	height: 100px;
+	  	background: #38382e;
+	  	margin-bottom: 10px;
+	  }
+	  .sidebar {
+	  	float: left;
+	  	width: 220px;
+	  	margin-right: 20px;
+	  	margin-bottom: 10px;
+	  	height: 300px;
+	  	background: #5d33cf;
+	  }
+	  .cotent {
+	  	float: left;
+	  	width: 720px;
+	  	height: 300px;
+	  	background: #5d33cf;
+	  	margin-bottom: 10px;
+	  }
+	  #footer {
+	  	background: #cc4ad5;
+	  	height: 100px;
+	  	clear: both;
+	  }
+	  .box {
+	  	border: 20px solid;
+	  	padding: 30px;
+	  	margin: 30px;
+	  	background: #ffc;
+	  	width: 300px;
+	  	/*控制元素的盒模型解析模式 width/height=border+padding+conntent width/height*/
+	  	border-top: content-box;
+	  }
+
+	</style>
+</head>
+<body>
+  <div class="wrapper">
+  	<div id="header">页眉</div>
+  	<div class="sidebar">侧边栏</div>
+  	<div class="content">主内容</div>
+  	<div id="footer">页脚</div>
+  </div>
+
+</body>
+</html>

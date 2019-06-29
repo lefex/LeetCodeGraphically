@@ -1,0 +1,200 @@
+<<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<title>CSS3 基本选择器</title>
+	<style type="text/css">
+	/** 
+	通配选择器，用来选择所有元素
+	*/
+	  *{
+	  	margin: :0; 
+	  	padding: 0;
+	  }
+	  /*
+	  类选择器（.class），同一页面可以有多个相同的类名
+	  */
+	  .clearfix:after,.clearfix:before{
+	  	display: table; 
+	  	content: "";
+	  }
+	  .clearfix:after{
+	  	clear: both;
+	  	overflow: hidden;
+	  }
+	  .demo {
+	  	width: 250px; 
+	  	border: 1px solid #ccc; 
+	  	padding: 10px; 
+	  	margin: 20px auto;
+	  }
+	  .item {
+	  	background: green;
+	  	color: #fff;
+	  	font-weight: bold;
+	  }
+	  /**
+	  多类选择器，只匹配同时包含 .item.important 的元素
+	  */
+	  .item.important {
+	  	background: red;
+	  }
+	  /**改变所有的item的背景为orange*/
+	  .demo *{
+	  	background: orange;
+	  }
+	  li{
+	  	list-style: none outside none; 
+	  	float: left; 
+	  	height: 20px; 
+	  	line-height: 20px; 
+	  	width: 20px; 
+	  	border-radius: 10px; 
+	  	text-align: center; 
+	  	background: #f36; 
+	  	color: green;
+	  	margin-right: 5px;
+	  }
+	  /**
+	  元素选择器,ul 为 html 中的一个元素
+	  */
+	  ul{
+	  	background: grey;
+	  }
+	  /**
+	  id选择器，需要前面加 #，如#id，具有唯一性，在同一页面中不能同时出现 id 相同的两个选择器
+	  */
+	  #first {
+	  	background: lime;
+	  	color: #000;
+	  }
+	  #last {
+	  	background: #000;
+	  	color: lime;
+	  }
+	  div {
+	  	margin: 5px;
+	  	padding: 5px;
+	  	border: 1px solid #ccc;
+	  }
+	  /**
+	  后代选择器，中间使用空格隔开，不能插入任何其它元素
+	  E F E的后代所有元素 F 都会起作用，下图为：5、6、8、9、10 起作用
+	  */
+	  div div {
+	  	background: orange;
+	  }
+	  /**
+	  子选择器：E>F, E 元素下的所有子元素的起作用，body 下所有的 div 元素都起作用
+	  */
+	  body > div {
+	  	background: green;
+	  }
+	  /**相邻兄弟选择器，E+F E和F是同辈元素，F在E的后面，修改active后面相邻的元素*/
+	  .active + div {
+	  	background: lime;
+	  }
+	  /**通用兄弟选择器，E~F，E后所有的兄弟节点，active 后所有的div节点，兄弟*/
+	  .active ~ div {
+	  	background: red;
+	  }
+	  /**
+	  伪类选择器，以冒号风格
+	  E: name {}; 其中 E 为HTML的元素，name 为 CSS的名称；
+	  */
+	  .download-info {
+	  	text-align: center;;
+	  }
+	  .btn {
+	  	background-color: #0074cc;
+	  }
+	  .btn:hover {
+	  	background-color: #0055cc;
+	  }
+	  .btn:active {
+	  	background-color: #004ab3;
+	  }
+	  .btn:focus {
+	  	outline: thin dotted #333;
+	  }
+	  /**
+	  属性选择器，匹配某些类型的属性
+	  */
+	  a {
+	  	font-size: 16px;
+	  	text-decoration: none;
+	  	padding-right: 20px;
+	  	display: inline-block;
+	  	margin-bottom: 5px;
+	  	background-color: red;
+	  }
+	  a[href^="http://"] {
+	  	background: yellow;
+	  }
+	  a[href="home"] {
+	  	background: red;
+	  }
+	  a[href$="doc"] {
+	  	background: green;
+	  }
+	  a[href="ppt"] {
+	  	background: lime;
+	  }
+	  /*伪元素 first-letter 第一个字符起作用，还有更多的伪元素，比如 ::before ::after*/
+	  p:first-child::first-letter {
+	  	float: left;
+	  	color: #903;
+	  	padding: 4px 8px 0 3px;
+	  	font: 75px/60px Georgia;
+	  }
+	  /*否定选择器：  :not(footer){...}*/
+	</style>
+</head>
+<body>
+  <ul class="clearfix demo">
+  	<li class="first" id="first">1</li>
+  	<li class="active">2</li>
+  	<li class="important item">3</li>
+  	<li class="important">4</li>
+  	<li class="item">5</li>
+  	<li>6</li>
+  	<li>7</li>
+  	<li>8</li>
+  	<li>9</li>
+  	<li class="last" id="last">10</li>
+  </ul>
+
+  <div class="active">1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4
+    <div>5</div>
+    <div>6</div>
+  </div>
+  <div>7
+    <div>8
+      <div>9
+      	<div>10</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="download-info">
+  	<a href="https://www.baidu.com" class="btn">View project on GitHub</a>
+  </div>
+
+<!--   <div>
+  	<ul>
+  	<li><a href="lefe.doc">Doc 文档</a></li>
+  	<li><a href="http://www.baidu.com">HTTP</a></li>
+  	<li><a href="home">home 文档</a></li>
+  	<li><a href="lefe.ppt">ppt 文档</a></li>
+    </ul>
+  </div> -->
+
+  <div>
+  	<p>Good lefe</p>
+  </div>
+
+</body>
+</html>
