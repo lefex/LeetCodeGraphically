@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Box</title>
+    <style>
+        .box {
+            width: 400px;
+            height: 400px;
+            background-color: rgba(15, 101, 230, 0.863);
+        }
+        .box2 {
+            background-color: bisque;
+            width: 400px;
+            height: 400px;
+        }
+
+        .inner-content-box {
+            /* // W3C标准中默认的盒模型 
+           div的宽高会受 margin,border,padding 的值影响 div_width = margin + border + padding 
+            */
+            box-sizing: content-box;
+            background-color: red;
+            width: 200px;
+            height: 200px;
+            /* margin-left: 60px; */
+            padding-left: 60px;
+            margin: 40px;
+            border-color: green;
+            border-width: 40px;
+            border-style: solid;
+        }
+        .inner-border-box {
+            /* IE盒模型（box-sizing: border-box）
+            width = content width + padding + border;
+            height = content height + padding + border;
+            div的整体宽度设置的是什么就是什么，但是它的 content width/height 会变小
+             */
+            box-sizing: border-box;
+            background-color: red;
+            width: 200px;
+            height: 200px;
+            margin-left: 60px;
+            padding-left: 60px;
+            border-color: green;
+            border-width: 40px;
+            border-style: solid;
+        }
+        .div1{
+             background: red;
+             /* inline block 元素句 block 元素的边界 */
+             padding: 20px;
+             /* block 元素之间的距离 */
+             margin: 40px;
+             border: 1px solid #000009;
+             }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <!-- div 的width =  content width + padding + border-->
+        <div class="inner-content-box">Content</div>
+    </div>
+    <div class="box2">
+        <div class="inner-border-box">Content</div>
+    </div>
+    <!-- div是一个块状block，而 a 是嵌套在 div 中的标签，称为 inline block  -->
+    <div class="div1">div标签默认是一个块状（block）盒子<a href="#">这是一个超级链接</a></div>
+</body>
+
+</html>

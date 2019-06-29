@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="list.js"></script>
+    <style>
+        html {
+            /* 通过设置字体来控制 rem 单位的大小，1rem = 17px */
+            font-size: 15px;
+        }
+
+        .list {
+            border: 0.5px;
+            border-left-style: hidden;
+            border-right-style: hidden;
+            border-top-style: hidden;
+            border-bottom-style: dashed;
+            border-color: #999999;
+            width: 900px;
+            height: 100px;
+            position: relative;
+            margin-top: 4px;
+        }
+
+        .cover {
+            left: 15px;
+            background: blue;
+            width: 75px;
+            height: 75px;
+            top: 15px;
+            position: absolute;
+            border-radius: 4px;
+        }
+
+        .hidden {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .title {
+            font-size: 20px;
+            font-weight: 900;
+            color: #2e3135;
+            width: 780px;
+            left: 100px;
+            margin-top: 15px;
+            height: 30px;
+            position: absolute;
+        }
+
+        .detail {
+            font-size: 15px;
+            color: #999999;
+            width: 780px;
+            left: 100px;
+            top: 35px;
+            height: 45px;
+            position: absolute;
+            -webkit-line-clamp: 2;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .btn {
+           color: black;
+           text-decoration: none;
+        }
+
+        .btn:hover {
+            color: #0055cc;
+        }
+
+        .btn:active {
+            color: #004ab3;
+        }
+
+        .btn:focus {
+            outline: thin dotted #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="list">
+        <img class="cover" src="http://imgs.jushuo.com/editor/2018-12-05/5c07a6f415099.jpg">
+        <p class="title hidden"><a target="target-new" class="btn"
+                href="https://wanandroid.com/">绝对定位也是一种解决左右布局的好方法绝</a></p>
+        <p class="detail">
+            我们写的 .java 文件，最终会编译成 .class 文件, class 又由类装载器加载后，在 JVM 中会形成一份描述 class 结构的元信息对象，通过该元信息对象可以知道 class 的结构信息
+            (构造函数、属性、方法)等。JVM 会
+        </p>
+    </div>
+</body>
+
+</html>
