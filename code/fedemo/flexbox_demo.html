@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            display: -webkit-flex;
+            justify-content: center;
+        }
+
+        .main {
+            width: 100%;
+            background-color:#EEEEF0;
+            display: flex;
+            display: -webkit-flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background-color: #4A90E2;
+            height: 350px;
+        }
+
+        .content {
+            margin: 0 100px;
+            display: flex;
+            display: -webkit-flex;
+            flex: 4;
+        }
+
+        .left {
+            display: flex;
+            display: -webkit-flex;
+            flex-direction: column;
+            flex: 4;
+            margin: 20px;
+        }
+
+        .left-item {
+            margin-bottom: 10px;
+            background-color: white;
+            flex-wrap: wrap;
+            flex: 1 100px;
+        }
+
+        .right {
+            display: flex;
+            display: -webkit-flex;
+            width: 300px;
+            flex-direction: column;
+            background-color: white;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+
+        .right-item {
+            margin: 40px;
+            height: 220px;
+        }
+        .right-item-img {
+            width: 100%;
+            height: 100%;
+        }
+        .right-item-title {
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .footer {
+            background-color: rgba(0, 119, 255, 0.7);
+            height: 100px;
+
+        }
+
+        .title {
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            font-size: 60px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: white;
+            font-weight: normal;
+            font-size: 30px;
+        }
+
+        .left-item {
+            border: 0.5px;
+            border-color: #999999;
+            position: relative;
+        }
+
+        .left-item-cover {
+            left: 15px;
+            background: blue;
+            width: 75px;
+            height: 75px;
+            top: 15px;
+            position: absolute;
+            border-radius: 4px;
+        }
+
+        .hidden {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .left-item-title {
+            font-size: 20px;
+            font-weight: normal;
+            color: #2e3135;
+            width: 780px;
+            left: 100px;
+            margin-top: 15px;
+            height: 30px;
+            position: absolute;
+        }
+
+        .left-item-detail {
+            font-size: 15px;
+            color: #999999;
+            width: 780px;
+            left: 100px;
+            top: 35px;
+            height: 45px;
+            position: absolute;
+            -webkit-line-clamp: 2;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .btn {
+            color: black;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            color: #0055cc;
+        }
+
+        .btn:active {
+            color: #004ab3;
+        }
+
+        .btn:focus {
+            outline: thin dotted #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="header">
+            <p class="title">素燕的技术圈</p>
+            <p class="subtitle">涉及的内容有：图解数据结构和算法、计算机通用技术、前端</p>
+        </div>
+        <div class="content">
+            <div class="left">
+                <div class="left-item list">
+                    <img class="left-item-cover" src="http://imgs.jushuo.com/editor/2018-12-05/5c07a6f415099.jpg">
+                    <p class="left-item-title hidden"><a target="target-new" class="btn"
+                            href="https://wanandroid.com/">绝对定位也是一种解决左右布局的好方法绝</a></p>
+                    <p class="left-item-detail">
+                        我们写的 .java 文件，最终会编译成 .class 文件, class 又由类装载器加载后，在 JVM 中会形成一份描述 class 结构的元信息对象，通过该元信息对象可以知道 class
+                        的结构信息
+                        (构造函数、属性、方法)等。JVM 会
+                    </p>
+                </div>
+                <div class="left-item">
+                    <img class="left-item-cover" src="http://imgs.jushuo.com/editor/2018-12-05/5c07a6f415099.jpg">
+                    <p class="left-item-title hidden"><a target="target-new" class="btn"
+                            href="https://wanandroid.com/">绝对定位也是一种解决左右布局的好方法绝</a></p>
+                    <p class="left-item-detail">
+                        我们写的 .java 文件，最终会编译成 .class 文件, class 又由类装载器加载后，在 JVM 中会形成一份描述 class 结构的元信息对象，通过该元信息对象可以知道 class
+                        的结构信息
+                        (构造函数、属性、方法)等。JVM 会
+                    </p>
+                </div>
+                <div class="left-item">
+                    <img class="left-item-cover" src="http://imgs.jushuo.com/editor/2018-12-05/5c07a6f415099.jpg">
+                    <p class="left-item-title hidden"><a target="target-new" class="btn"
+                            href="https://wanandroid.com/">绝对定位也是一种解决左右布局的好方法绝</a></p>
+                    <p class="left-item-detail">
+                        我们写的 .java 文件，最终会编译成 .class 文件, class 又由类装载器加载后，在 JVM 中会形成一份描述 class 结构的元信息对象，通过该元信息对象可以知道 class
+                        的结构信息
+                        (构造函数、属性、方法)等。JVM 会
+                    </p>
+                </div>
+                <div class="left-item">
+                    <img class="left-item-cover" src="http://imgs.jushuo.com/editor/2018-12-05/5c07a6f415099.jpg">
+                    <p class="left-item-title hidden"><a target="target-new" class="btn"
+                            href="https://wanandroid.com/">绝对定位也是一种解决左右布局的好方法绝</a></p>
+                    <p class="left-item-detail">
+                        我们写的 .java 文件，最终会编译成 .class 文件, class 又由类装载器加载后，在 JVM 中会形成一份描述 class 结构的元信息对象，通过该元信息对象可以知道 class
+                        的结构信息
+                        (构造函数、属性、方法)等。JVM 会
+                    </p>
+                </div>
+                <div class="left-item">
+                    <img class="left-item-cover" src="http://imgs.jushuo.com/editor/2018-12-05/5c07a6f415099.jpg">
+                    <p class="left-item-title hidden"><a target="target-new" class="btn"
+                            href="https://wanandroid.com/">绝对定位也是一种解决左右布局的好方法绝</a></p>
+                    <p class="left-item-detail">
+                        我们写的 .java 文件，最终会编译成 .class 文件, class 又由类装载器加载后，在 JVM 中会形成一份描述 class 结构的元信息对象，通过该元信息对象可以知道 class
+                        的结构信息
+                        (构造函数、属性、方法)等。JVM 会
+                    </p>
+                </div>
+                <div class="left-item">
+                    <img class="left-item-cover" src="http://imgs.jushuo.com/editor/2018-12-05/5c07a6f415099.jpg">
+                    <p class="left-item-title hidden"><a target="target-new" class="btn"
+                            href="https://wanandroid.com/">绝对定位也是一种解决左右布局的好方法绝</a></p>
+                    <p class="left-item-detail">
+                        我们写的 .java 文件，最终会编译成 .class 文件, class 又由类装载器加载后，在 JVM 中会形成一份描述 class 结构的元信息对象，通过该元信息对象可以知道 class
+                        的结构信息
+                        (构造函数、属性、方法)等。JVM 会
+                    </p>
+                </div>
+            </div>
+            <div class="right">
+                <div class="right-item">
+                    <p class="right-item-title">超越技术（数据结构和算法）</p>
+                    <img class="right-item-img" src="http://imgs.jushuo.com/editor/2018-12-05/5c07a6f415099.jpg" alt="">
+                </div>
+                <div class="right-item">
+                    <p class="right-item-title">素燕（前端）</p>
+                    <img class="right-item-img" src="http://imgs.jushuo.com/editor/2018-12-05/5c07a6f415099.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="footer"></div>
+    </div>
+</body>
+
+</html>
