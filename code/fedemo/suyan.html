@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            display: -webkit-flex;
+            justify-content: center;
+        }
+
+        .main {
+            width: 100%;
+            background-color: #EEEEF0;
+            display: flex;
+            display: -webkit-flex;
+            flex-direction: column;
+        }
+
+        .header {
+            /* background-color: #4A90E2; 564CAB 33BFD3*/
+            background-image: radial-gradient(circle,#99CCCC, #7171B7);
+            /* background-image: radial-gradient(circle,#564CAB, #99CCCC); */
+            height: 350px;
+        }
+
+        .content {
+            margin: 0 100px;
+            display: flex;
+            display: -webkit-flex;
+            flex: 4;
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            /* row-reverse column column-reverse */
+        }
+
+        .left {
+            margin: 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: auto;
+            grid-gap: 10px;
+            flex: 4;
+        }
+
+        .left>div {
+            display: flex;
+            display: -webkit-flex;
+            flex-direction: column;
+            border-radius: 5px;
+            padding: 0px;
+            background-color: white;
+            /* border: 1px solid rgb(79,185,227); */
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .left-item-title {
+            font-size: 20px;
+            background-color: #FFD11C;
+            flex: 1;
+            color: black;
+            text-align: center;
+            padding-top: 10px;
+        }
+
+        .left-item-top {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            align-content: flex-start;
+            flex: 3;
+            background-color: white;
+            margin: 20px;
+        }
+
+        span {
+            background-color: aliceblue;
+            padding: 4px;
+            margin: 4px;
+            border: 1px solid rgb(79, 185, 227);
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .right {
+            display: flex;
+            display: -webkit-flex;
+            width: 300px;
+            flex-direction: column;
+            background-color: white;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+
+        .right-item {
+            margin: 40px;
+            height: 220px;
+        }
+
+        .right-item-img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .right-item-title {
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .footer {
+            background-color:white;
+            /* background-image: linear-gradient(to right , #7A88FF, #7AFFAF); */
+            display: flex;
+            display: -webkit-flex;
+            height: 100px;
+        }
+        .footer-item {
+            flex: 1;
+            margin: 40px;
+            align-items: center;
+        }
+
+        .title {
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            font-size: 60px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: white;
+            font-weight: normal;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="header">
+            <p class="title">素燕的技术圈</p>
+            <p class="subtitle">前端、图解数据结构和算法、LeetCode、计算机通用技术</p>
+        </div>
+        <div class="content">
+            <div class="left">
+                <div>
+                    <div class="left-item-top">
+                        <span>图解CSS</span>
+                        <span>JavaScript</span>
+                        <span>React</span>
+                        <span>HTML</span>
+                        <span>核心原理</span>
+                        <span>动画</span>
+                    </div>
+                    <div class="left-item-title">前端</div>
+                </div>
+                <div>
+                    <div class="left-item-top">
+                        <span>编码原理</span>
+                        <span>Base64</span>
+                        <span>正则表达式</span>
+                    </div>
+                    <div class="left-item-title">计算机通用技术</div>
+                </div>
+                <div>
+                    <div class="left-item-top">
+                        <span>冒泡</span>
+                        <span>快速</span>
+                        <span>堆</span>
+                        <span>希尔</span>
+                        <span>插入</span>
+                        <span>归并</span>
+                        <span>选择</span>
+                        <span>基数</span>
+                        <span>桶</span>
+                    </div>
+                    <div class="left-item-title">排序</div>
+                </div>
+                <div>
+                    <div class="left-item-top">
+                        <span>生活</span>
+                        <span>闲聊</span>
+                        <span>工作</span>
+                    </div>
+                    <div class="left-item-title">关于我</div>
+                </div>
+                <div>
+                    <div class="left-item-top">
+                        <span>时间复杂度</span>
+                        <span>空间复杂度</span>
+                    </div>
+                    <div class="left-item-title">数据结构算法概念</div>
+                </div>
+                <div>
+                        <div class="left-item-top">
+                            <span>定义</span>
+                            <span>原理</span>
+                        </div>
+                        <div class="left-item-title">数组</div>
+                </div>
+                <div>
+                    <div class="left-item-top">
+                        <span>单链表</span>
+                        <span>双向链表</span>
+                        <span>LeetCode</span>
+                        <span>链表中的环</span>
+                        <span>插入节点</span>
+                        <span>添加节点</span>
+                        <span>删除节点</span>
+                    </div>
+                    <div class="left-item-title">链表</div>
+                </div>
+                <div>
+                    <div class="left-item-top">
+                        <span>队列</span>
+                        <span>单向队列</span>
+                        <span>双端队列</span>
+                        <span>优先队列</span>
+                        <span>LeetCode</span>
+                    </div>
+                    <div class="left-item-title">队列</div>
+                </div>
+                <div>
+                    <div class="left-item-top">
+                        <span>二叉树</span>
+                        <span>AVL树</span>
+                        <span>二分搜索树</span>
+                        <span>红黑树</span>
+                        <span>线段树</span>
+                        <span>字典树</span>
+                        <span>LeetCode</span>
+                    </div>
+                    <div class="left-item-title">树</div>
+                </div>
+                <div>
+                    <div class="left-item-top">
+                        <span>定义</span>
+                        <span>LeetCode</span>
+                        <span>添加元素</span>
+                        <span>删除元素</span>
+                    </div>
+                    <div class="left-item-title">堆</div>
+                </div>
+                <div>
+                    <div class="left-item-top">
+                        <span>开地址法</span>
+                        <span>LeetCode</span>
+                        <span>链地址法</span>
+                        <span>哈希冲突</span>
+                    </div>
+                    <div class="left-item-title">哈希表</div>
+                </div>
+                <div>
+                    <div class="left-item-top">
+                        <span>如何学懂递归</span>
+                        <span>链表</span>
+                        <span>树</span>
+                    </div>
+                    <div class="left-item-title">递归</div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="right-item">
+                    <p class="right-item-title">超越技术（数据结构和算法）</p>
+                    <img class="right-item-img"
+                        src="https://github.com/lefex/LeetCodeGraphically/blob/master/images/cyjs_qr.png?raw=true"
+                        alt="">
+                </div>
+                <div class="right-item">
+                    <p class="right-item-title">素燕（前端）</p>
+                    <img class="right-item-img"
+                        src="https://github.com/lefex/LeetCodeGraphically/blob/master/images/qrcode_suyan.png?raw=true"
+                        alt="">
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer-item">
+                <!-- <p>@Lefe_x</p> -->
+            </div>
+            <div class="footer-item">
+                <!-- <p>@Lefe_x</p> -->
+            </div>
+            
+        </div>
+    </div>
+</body>
+
+</html>

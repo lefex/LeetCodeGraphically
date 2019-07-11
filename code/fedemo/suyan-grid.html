@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            width: 90%;
+            max-width: 900px;
+            margin: 2em auto;
+            font: .9em/1.2 Arial, Helvetica, sans-serif;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            grid-gap: 20px;
+        }
+
+        header,
+        footer {
+            border-radius: 5px;
+            padding: 10px;
+            background-color: rgb(207, 232, 220);
+            border: 2px solid rgb(79, 185, 227);
+        }
+
+        aside {
+            padding: 20px;
+            border-left: 1px solid #999;
+        }
+
+        .container {
+            display: grid;
+            grid-template-areas:
+                "header header"
+                "content sidebar"
+                "footer footer";
+            grid-template-columns: 3fr 1fr;
+            grid-template-rows: 100px 300px 100px;
+            grid-gap: 20px;
+        }
+
+        header {
+            grid-area: header;
+        }
+
+        article {
+            grid-area: content;
+        }
+
+        aside {
+            grid-area: sidebar;
+        }
+
+        footer {
+            grid-area: footer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>素燕的技术圈</header>
+        <article>
+            <h1>文章内容</h1>
+            <p>文章列表1</p>
+            <p>文章列表2</p>
+        </article>
+        <aside>
+            <h2>关于</h2>
+            <p>各个平台介绍</p>
+        </aside>
+        <footer>@Lefe_x</footer>
+    </div>
+</body>
+
+</html>

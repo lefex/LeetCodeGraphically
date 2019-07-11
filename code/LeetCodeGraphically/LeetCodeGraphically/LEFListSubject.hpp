@@ -247,45 +247,45 @@ namespace LEFListSubject {
          Runtime: 40 ms, faster than 96.78% of C++ online submissions for Add Two Numbers.
          Memory Usage: 19 MB, less than 82.09% of C++ online submissions for Add Two Numbers.
          */
-        ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) {
-            // 创建头结点
-            ListNode *front = NULL;
-            // 创建尾结点
-            ListNode *rear = NULL;
-            
-            // 用来标记进位的值，如果大于等于10，则进位为1
-            int num = 0;
-            
-            while (l1 != NULL || l2 != NULL) {
-                int l1Value = 0;
-                if (l1 != NULL) {
-                    l1Value = l1->val;
-                    l1 = l1->next;
-                }
-                int l2Value = 0;
-                if (l2 != NULL) {
-                    l2Value = l2->val;
-                    l2 = l2->next;
-                }
-                int sum = l1Value + l2Value + num;
-                int value = sum;
-                if (sum >= 10) {
-                    num = 1;
-                    // value 值取余数
-                    value = sum % 10;
-                } else {
-                    num = 0;
-                }
-                
-                // 创建一个节点
-                ListNode *node = new ListNode(value);
-                if (front == NULL) {
-                    front = node;
-                } else {
-                    rear->next = node;
-                }
-                rear = node;
-            }
+ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) {
+// 创建头结点
+ListNode *front = NULL;
+// 创建尾结点
+ListNode *rear = NULL;
+
+// 用来标记进位的值，如果大于等于10，则进位为1
+int num = 0;
+
+while (l1 != NULL || l2 != NULL) {
+    int l1Value = 0;
+    if (l1 != NULL) {
+        l1Value = l1->val;
+        l1 = l1->next;
+    }
+    int l2Value = 0;
+    if (l2 != NULL) {
+        l2Value = l2->val;
+        l2 = l2->next;
+    }
+    int sum = l1Value + l2Value + num;
+    int value = sum;
+    if (sum >= 10) {
+        num = 1;
+        // value 值取余数
+        value = sum % 10;
+    } else {
+        num = 0;
+    }
+    
+    // 创建一个节点
+    ListNode *node = new ListNode(value);
+    if (front == NULL) {
+        front = node;
+    } else {
+        rear->next = node;
+    }
+    rear = node;
+}
             /**
              如果链表都为空了，但是进位为1，那么需要把进位单独创建一个节点
              */

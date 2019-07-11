@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 200px;
+            width: 0 auto;
+        }
+
+        .container {
+            padding: 10px;
+            width: 550px;
+            /* overflow: hidden; */
+            height: 80px;
+            background-color: #EEEEF0;
+            display: flex;
+            flex-direction: row-reverse;
+            flex-wrap: no-wrap;
+            align-items: flex-start;
+            /* align-content: flex-start | flex-end | center | stretch | space-around | space-between; */
+            /* 主轴的方向*/
+            /* justify-content: center; */
+            /* 交叉轴对齐方式 */
+            /* align-items: flex-start; */
+            /* 交叉轴的方向 */
+            /* align-items: center; */
+            /* align-content: flex-start; */
+            /* flex-flow: row wrap; */
+            /* row-reverse column column-reverse */
+        }
+
+        span {
+            background-color: #0077FF;
+            padding: 4px;
+            margin: 4px;
+            color: white;
+            border: 1px solid rgb(79, 185, 227);
+            border-radius: 4px;
+            white-space: nowrap;
+            /* flex-grow: 0; */
+            /* flex-shrink: 1; */
+        }
+
+        span:nth-child(3) {
+            background-color: #FFC988;
+            flex-grow: 1;
+            flex-shrink: 0;
+            flex-basis: 150px;
+            align-self: center;
+            flex:
+                /* order: -1; */
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <!-- <p>flex-start</p> -->
+        <div class="container">
+            <span>二叉树</span>
+            <span>AVL树</span>
+            <span>二分搜索树</span>
+            <span>红黑树</span>
+            <span>线段树</span>
+            <span>字典树</span>
+            <span>LeetCode</span>
+        </div>
+    </div>
+    <div>
+        <p>flex-end</p>
+        <div class="container" style="align-content: flex-end">
+            <span>二叉树</span>
+            <span>AVL树</span>
+            <span>二分搜索树</span>
+            <span>红黑树</span>
+            <span>线段树</span>
+            <span>字典树</span>
+            <span>LeetCode</span>
+        </div>
+    </div>
+    <div>
+        <p>center</p>
+        <div class="container" style="align-content: center">
+            <span>二叉树</span>
+            <span>AVL树</span>
+            <span>二分搜索树</span>
+            <span>红黑树</span>
+            <span>线段树</span>
+            <span>字典树</span>
+            <span>LeetCode</span>
+        </div>
+    </div>
+    <div>
+        <p>stretch</p>
+        <div class="container" style="align-content: stretch">
+            <span>二叉树</span>
+            <span>AVL树</span>
+            <span>二分搜索树</span>
+            <span>红黑树</span>
+            <span>线段树</span>
+            <span>字典树</span>
+            <span>LeetCode</span>
+        </div>
+    </div>
+    <div>
+        <p>space-around</p>
+        <div class="container" style="align-content: space-around">
+            <span>二叉树</span>
+            <span>AVL树</span>
+            <span>二分搜索树</span>
+            <span>红黑树</span>
+            <span>线段树</span>
+            <span>字典树</span>
+            <span>LeetCode</span>
+        </div>
+    </div>
+    <div>
+        <p>space-between</p>
+        <div class="container" style="align-content: space-between">
+            <span>二叉树</span>
+            <span>AVL树</span>
+            <span>二分搜索树</span>
+            <span>红黑树</span>
+            <span>线段树</span>
+            <span>字典树</span>
+            <span>LeetCode</span>
+        </div>
+    </div>
+
+</body>
+
+</html>
