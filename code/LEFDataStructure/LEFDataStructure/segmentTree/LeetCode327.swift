@@ -1,18 +1,18 @@
 //
-//  SegmentTree.swift
+//  LeetCode327.swift
 //  LEFDataStructure
 //
-//  Created by wsy on 2019/7/11.
+//  Created by wsy on 2019/7/13.
 //  Copyright © 2019 WSY. All rights reserved.
 //
 
 import Foundation
 
-class SegmentTree<T> {
-    var datas: [T]!
-    var trees: [T]!
-    var merger: (_ a: T, _ b: T) -> T
-    init(datas: [T], defaultValue: T, merger: @escaping (_ a: T, _ b: T) -> T) {
+class Solution {
+    var datas: [Int]!
+    var trees: [Int]!
+    var merger: (_ a: Int, _ b: Int) -> Int
+    init(datas: [Int], defaultValue: Int, merger: @escaping (_ a: Int, _ b: Int) -> Int) {
         self.merger = merger
         self.datas = datas
         // trees 初始化，大小为源数据源的 4 倍
@@ -20,6 +20,8 @@ class SegmentTree<T> {
         // 构建线段树
         bulidSegment(l: 0, r: datas.count-1, curIndex: 0)
     }
+
+    
     // 构建线段树，取值范围为 l....r，curIndex 为线段树节点的位置
     private func bulidSegment(l: Int, r: Int, curIndex: Int) {
         if l == r {
@@ -42,7 +44,7 @@ class SegmentTree<T> {
     }
     
     // 查询区间范围的值
-    func query(ql: Int, qr: Int) -> T? {
+    func query(ql: Int, qr: Int) -> Int? {
         if ql < 0 || ql > qr || ql > datas.count - 1 || qr < 0 || qr > datas.count - 1 {
             return nil
         }
@@ -50,8 +52,8 @@ class SegmentTree<T> {
     }
     
     // [0-5] [0-2]
-    private func query(tIndex: Int, l: Int, r: Int, ql: Int, qr: Int) -> T? {
-//        print("tIndex=\(tIndex),l=\(l),r=\(r), ql=\(ql), qr=\(qr)")
+    private func query(tIndex: Int, l: Int, r: Int, ql: Int, qr: Int) -> Int? {
+        //        print("tIndex=\(tIndex),l=\(l),r=\(r), ql=\(ql), qr=\(qr)")
         if l == ql && r == qr {
             return trees[tIndex]
         }
@@ -80,7 +82,7 @@ class SegmentTree<T> {
         return nil
     }
     
-    func set(index: Int, value: T) {
+    func set(index: Int, value: Int) {
         if index < 0 || index > datas.count {
             return
         }
@@ -91,7 +93,7 @@ class SegmentTree<T> {
     }
     
     // 更新 index 对应的值为 value，tIndex 为当前树的根节点，l、r 表示区间
-    private func set(index: Int, value: T, tIndex: Int, l: Int, r: Int) {
+    private func set(index: Int, value: Int, tIndex: Int, l: Int, r: Int) {
         if l == r {
             // 叶子节点
             trees[tIndex] = value
@@ -120,3 +122,4 @@ class SegmentTree<T> {
         return 2 * index + 2;
     }
 }
+

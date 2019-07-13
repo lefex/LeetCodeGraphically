@@ -13,6 +13,7 @@
 		34F2632A22D6BB9900A311BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34F2632922D6BB9900A311BB /* Assets.xcassets */; };
 		34F2632D22D6BB9900A311BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34F2632B22D6BB9900A311BB /* LaunchScreen.storyboard */; };
 		34F2633622D6BBF300A311BB /* SegmentTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2633522D6BBF300A311BB /* SegmentTree.swift */; };
+		34F2633822D9B93C00A311BB /* LeetCode327.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2633722D9B93C00A311BB /* LeetCode327.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		34F2632C22D6BB9900A311BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		34F2632E22D6BB9900A311BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34F2633522D6BBF300A311BB /* SegmentTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentTree.swift; sourceTree = "<group>"; };
+		34F2633722D9B93C00A311BB /* LeetCode327.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeetCode327.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				34F2633522D6BBF300A311BB /* SegmentTree.swift */,
+				34F2633722D9B93C00A311BB /* LeetCode327.swift */,
 			);
 			path = segmentTree;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34F2632522D6BB9800A311BB /* ViewController.swift in Sources */,
+				34F2633822D9B93C00A311BB /* LeetCode327.swift in Sources */,
 				34F2632322D6BB9800A311BB /* AppDelegate.swift in Sources */,
 				34F2633622D6BBF300A311BB /* SegmentTree.swift in Sources */,
 			);
