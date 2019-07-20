@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Changing color and font-size example</title>
+    <style>
+    p {
+        color: red;
+        font-size: 20px;
+    }
+    .name {
+        color: antiquewhite;
+    }
+    </style>
+
+    <script>
+        function changeText() {
+            var p = document.getElementById("pid");
+
+            p.style.color = "blue"
+            p.style.fontSize = "18pt"
+        }
+
+        function logcss() {
+            console.log("log css");
+            // 获取所有的 CSS 样式
+            var ss = document.styleSheets;
+            console.log(ss);
+            for (var i = 0; i < ss.length; i++) {
+                for (var j = 0; j < ss[i].cssRules.length; j++) {
+                    console.log(ss[i].cssRules[j].selectorText + "\n");
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <p id="pid" onclick="window.location.href = 'http://www.cnn.com/';">linker</p>
+    <p onclick="logcss();">log css</p>
+
+    <form>
+        <p><input value="rec" type="button" onclick="changeText();" /></p>
+    </form>
+
+</body>
+
+</html>
