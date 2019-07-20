@@ -17,6 +17,10 @@
             grid-template-columns: repeat(3, 1fr);
             grid-template-columns: 200px 200px 200px;
             grid-template-columns: repeat(3, 200px);
+            /* grid-auto-flow: column; */
+            /* grid-auto-flow: row dense; */
+            /* justify-items: center; */
+            /* align-items: center; */
 
             grid-template-rows: minmax(200px, 1fr) 100px auto;
         }
@@ -30,6 +34,7 @@
             padding: 10px;
             background-color: rgb(207,232,220);
             border: 2px solid rgb(79,185,227);
+            grid-column-start: 2;
         }
     </style>
 </head>

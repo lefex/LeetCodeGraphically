@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            width: 500px;
+            /* 下面这句话竟然能居中 */
+            margin: 0 auto;
+            background-color: gainsboro;
+        }
+div,p {
+    color: red;
+}
+    </style>
+</head>
+<body>
+    <div>
+        <p>|__div->p1</p>
+        <p>|__div->p2</p>
+        <section>
+            <p>|_____div->section->p</p>
+            <p>|_____div->section->p</p>
+            <div>|_____div->section->div</div>
+        </section>
+    </div>
+    <p>|__p1</p>
+    <p>|__p2</p>
+</body>
+</html>
