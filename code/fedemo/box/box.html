@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>box model</title>
+    <style>
+        body {
+            width: 500px;
+            /* 下面这句话竟然能居中 */
+            margin: 0 auto;
+            background-color: rosybrown;
+        }
+        .main {
+            width: 400px;
+            height: 400px;
+            margin: 0 auto;
+            background-color: gainsboro;
+        }
+
+        .sub {
+            width: 200px;
+            height: 200px;
+            background-color: cadetblue;
+            margin: 50px;
+            border-color: bisque;
+            border-width: 20px;
+            border-style: dotted;
+            padding: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="sub"></div>
+    </div>
+</body>
+
+</html>

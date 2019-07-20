@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>box model example</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: burlywood;
+        }
+
+        body>* {
+            padding: 10px;
+            font-size: 20px;
+            border: 20px solid rgba(0, 0, 0, 0.5);
+        }
+
+        header,
+        footer {
+            background-color: blue;
+            color: white;
+        }
+
+        main {
+            background-color: yellow;
+            /* margin-bottom: 60px; */
+            margin: 30px;
+            padding: 30px;
+            border: 40px dashed red;
+            width: 60%;
+            box-sizing: border-box;
+            /* height: 200px; */
+        }
+
+        header {}
+
+        footer {
+            /* margin-top: 80px; */
+        }
+
+        p {
+            width: 400px;
+            height: 2.5em;
+            padding: 1em 1em 1em 1em;
+            border: 1px solid black;
+        }
+
+        .autoscroll {
+            overflow: auto;
+        }
+
+        .clipped {
+            overflow: hidden;
+        }
+
+        .default {
+            overflow: visible;
+        }
+
+        div {
+            width: 60px;
+            height: 60px;
+            border: 20px solid rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            margin: 20px 0;
+
+            background-size: 140px;
+            background-position: center;
+            background-image: url('https://mdn.mozillademos.org/files/11947/ff-logo.png');
+            background-color: gold;
+        }
+
+        .default {
+            background-clip: border-box;
+        }
+
+        .padding-box {
+            background-clip: padding-box;
+        }
+
+        .content-box {
+            background-clip: content-box;
+        }
+    </style>
+</head>
+
+<body>
+    <header>Header</header>
+    <main>Main content
+    </main>
+    <footer>Footer</footer>
+
+    <p class="autoscroll">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Mauris tempus turpis id ante mollis dignissim. Nam sed
+        dolor non tortor lacinia lobortis id dapibus nunc. Praesent
+        iaculis tincidunt augue. Integer efficitur sem eget risus
+        cursus, ornare venenatis augue hendrerit. Praesent non elit
+        metus. Morbi vel sodales ligula.
+    </p>
+
+    <p class="clipped">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Mauris tempus turpis id ante mollis dignissim. Nam sed
+        dolor non tortor lacinia lobortis id dapibus nunc. Praesent
+        iaculis tincidunt augue. Integer efficitur sem eget risus
+        cursus, ornare venenatis augue hendrerit. Praesent non elit
+        metus. Morbi vel sodales ligula.
+    </p>
+
+    <p class="default">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Mauris tempus turpis id ante mollis dignissim. Nam sed
+        dolor non tortor lacinia lobortis id dapibus nunc. Praesent
+        iaculis tincidunt augue. Integer efficitur sem eget risus
+        cursus, ornare venenatis augue hendrerit. Praesent non elit
+        metus. Morbi vel sodales ligula.
+    </p>
+
+    <div class="default"></div>
+    <div class="padding-box"></div>
+    <div class="content-box"></div>
+</body>
+
+</html>
