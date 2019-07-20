@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: gainsboro;
+        }
+
+        p {
+            color: red;
+        }
+
+        .first {
+            font-weight: bold;
+            text-decoration: line-through;
+        }
+
+        #second {
+            color: blue;
+        }
+
+        /* * {
+    margin: 0;
+    padding: 0;
+} */
+
+        /* 匹配所有使用属性 "lefe" 的元素 */
+        [lefe] {
+            color: green;
+        }
+
+        /*匹配所有使用属性为 "lefe"，且值为 liquid 的元素*/
+        [lefe="liquid"] {
+            background-color: goldenrod;
+        }
+
+        /*匹配所有使用属性为 "lefe"，且值包含 spicy 的元素*/
+        [lefe~="spicy"] {
+            color: red;
+        }
+
+/* 匹配超链接样式 */
+a {
+    color: blue;
+    font-weight: bold;
+}
+
+/* 访问后的状态 */
+a:visited {
+    color: blue;
+}
+
+/* 鼠标悬停、点击、聚焦时的样式 */
+a:hover,
+a:active,
+a:focus {
+    color: darkred;
+    text-decoration: none;
+}
+
+[href^=http]::after {
+  content: '⤴';
+}
+    </style>
+</head>
+
+<body>
+    <p class="first">超越技术</p>
+    <div>哈哈.</div>
+    <p id="second">一起学前端!</p>
+
+    <ul>
+        <li data-quantity="1kg" lefe>Tomatoes</li>
+        <li data-quantity="3" lefe>Onions</li>
+        <li data-quantity="3" lefe>Garlic</li>
+        <li data-quantity="700g" lefe="not spicy like chili">Red pepper</li>
+        <li data-quantity="2kg" data-meat>Chicken</li>
+        <li data-quantity="optional 150g" data-meat>Bacon bits</li>
+        <li data-quantity="optional 10ml" lefe="liquid">Olive oil</li>
+        <li data-quantity="25cl" lefe="liquid">White wine</li>
+    </ul>
+
+    <a href="https://developer.mozilla.org/" target="_blank">Mozilla Developer Network</a>
+
+</body>
+
+</html>
