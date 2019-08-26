@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>固定头部文件</title>
+	<style type="text/css">
+		*{margin:0; padding:0}
+		body{font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#747d67; background:#fff}
+		a{color:#528036; text-decoration:none}
+		a:hover{color:#000; text-decoration:none}
+		ul{list-style:none}
+		h1{font-size:16px; height: 200px;}
+		.clear{clear:both}
+		.top-head{
+			position:fixed; width:100%;height:auto; background:#ffc; overflow-y:auto;min-height: 60px;line-height: 60px;
+		}
+		.container{
+			padding-top: 60px;
+		}
+        .item {
+            height: 200px;
+            background-color: red;
+        }
+        .item2 {
+            height: 200px;
+            background-color: blue;
+        }
+	</style>
+</head>
+<body>
+<!-- 头部 -->
+<div class="top-head">
+	我是头部文件的显示的内容，随着下边文件内容的增多，我是不会变得，我就固定在这个位置了
+</div>
+<div class="container">
+    <div class="item"></div>
+    <div class="item2"></div>
+    <div class="item"></div>
+    <div class="item2"></div>
+    <div class="item"></div>
+    <div class="item2"></div>
+</div>
+</body>
+</html>

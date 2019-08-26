@@ -1,0 +1,88 @@
+{
+  "_from": "san",
+  "_id": "san@3.7.7",
+  "_inBundle": false,
+  "_integrity": "sha512-EJMFAqTOR7IcZtvM+JYlzSQFKQUQNbXuRSgoACcvWwPfc4ZbSNfGtBnrXKmB9O8t2MwuJExC0m1yFCg/w79gWg==",
+  "_location": "/san",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "san",
+    "name": "san",
+    "escapedName": "san",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/san/-/san-3.7.7.tgz",
+  "_shasum": "cfc8f6d77d10683a3073f6bfe793b49dafae4f20",
+  "_spec": "san",
+  "_where": "/usr/local/lib/node_modules/npm/node_modules",
+  "browser": "dist/san.dev.js",
+  "bugs": {
+    "url": "https://github.com/baidu/san/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "A fast, portable, flexible JavaScript component framework",
+  "devDependencies": {
+    "art-template": "^4.10.2",
+    "colors": "^1.0.3",
+    "coveralls": "^3.0.1",
+    "ejs": "^2.6.1",
+    "etpl": "^3.2.0",
+    "handlebars": "^4.0.12",
+    "http-server": "^0.11.1",
+    "jasmine-core": "^2.99.0",
+    "karma": "^4.0.1",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-coverage": "^1.1.2",
+    "karma-jasmine": "^2.0.1",
+    "karma-remap-istanbul": "^0.6.0",
+    "karma-sourcemap-loader": "^0.3.7",
+    "mustache": "^3.0.1",
+    "opener": "^1.5.1",
+    "source-map": "^0.7.3",
+    "swig-templates": "^2.0.3",
+    "uglify-js": "^2.8.22",
+    "watch": "^1.0.2",
+    "wdio-jasmine-framework": "^0.3.0",
+    "wdio-sauce-service": "^0.4.14",
+    "wdio-spec-reporter": "^0.1.0",
+    "webdriverio": "^5.7.0"
+  },
+  "files": [
+    "src",
+    "dist",
+    "types/*.d.ts",
+    "types/*.json"
+  ],
+  "homepage": "https://github.com/baidu/san#readme",
+  "license": "MIT",
+  "main": "dist/san.ssr.js",
+  "name": "san",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baidu/san.git"
+  },
+  "scripts": {
+    "build": "node ./tool/build.js",
+    "dev": "node ./tool/dev.js",
+    "dev:unit": "npx karma start ./test/karma.conf.js start",
+    "pretest": "npm run build && node ./test/ssr/build-test.js && node ./test/perf/index.js",
+    "size": "npm run build && gzip -k dist/san.spa.modern.min.js && stat dist/san.spa.modern.min.js.gz && rm -f dist/*.gz",
+    "test": "npm run test:unit",
+    "test:coverage": "npm run test -- -- --coverage && cat ./coverage/report-lcov/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "test:e2e": "node ./test/e2e/wdio-launcher.js",
+    "test:sauce": "npm run test:e2e -- modern && npm run test:e2e -- ie_family && npm run test:e2e -- mobile",
+    "test:types": "tsc -p ./types/test/tsconfig.json",
+    "test:unit": "npx karma start ./test/karma.conf.js --single-run"
+  },
+  "types": "types",
+  "unpkg": "dist/san.min.js",
+  "version": "3.7.7"
+}

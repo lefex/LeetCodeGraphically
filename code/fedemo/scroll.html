@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Scroll</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .nav {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            /* background-color: blueviolet; */
+            overflow: scroll;
+            margin-top: 100px;
+        }
+        .nav:first-child {
+            padding-left: 15px;
+        }
+
+        .box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-right: 15px;
+        }
+
+        .title {
+            display: inline-block;
+            word-break:keep-all; 
+            white-space:nowrap; 
+            font-size: 16px;
+            color: red;
+            background-color: beige;
+        }
+
+        .line {
+            width: 30px;
+            height: 2px;
+            background-color: blue;
+            margin-top: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <div class="box">
+            <div class="title">花花公子</div>
+            <div class="line"></div>
+        </div>
+        <div class="box">
+            <div class="title">合同</div>
+            <div class="line"></div>
+        </div>
+        <div class="box">
+            <div class="title">蒸蒸日上</div>
+            <div class="line"></div>
+        </div>
+        <div class="box">
+            <div class="title">胡闹</div>
+            <div class="line"></div>
+        </div>
+        <div class="box">
+            <div class="title">花花公子会唱歌</div>
+            <div class="line"></div>
+        </div>
+        <div class="box">
+            <div class="title">我们的家园</div>
+            <div class="line"></div>
+        </div>
+    </div>
+
+</body>
+
+</html>

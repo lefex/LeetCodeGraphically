@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .container-wrap {
+            width: 100%;
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0.8);
+            white-space: nowrap;
+            overflow: hidden;
+            overflow-x: scroll;
+            -webkit-backface-visibility: hidden;
+            -webkit-perspective: 1000;
+            -webkit-overflow-scrolling: touch;
+            text-align: justify;
+
+
+        }
+
+
+        .container {}
+
+        .container>div {
+            display: inline-block;
+            height: 50px;
+            color: #fff;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        .box-1 {
+            width: 80%;
+        }
+
+        .box-2 {
+            width: 20%;
+        }
+
+        .box-3 {
+            width: 20%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-wrap">
+        <div class="container">
+            <div class="box-1">hello</div>
+            <div class="box-2">hello2</div>
+            <div class="box-3">hello3</div>
+        </div>
+    </div>
+</body>
+
+</html>

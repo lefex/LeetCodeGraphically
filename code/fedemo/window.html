@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Window</title>
+    <style>
+        body {
+            height: 1024px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        // 定义全局变量 age 和函数 sayAge，自动被添加到 window 对象
+        var age = 29;
+        function sayAge() {
+            console.log(this.age);
+        }
+        console.log(window.age);
+        sayAge();
+        window.sayAge();
+
+        // 在 window 定义的变量，通过 delete 删除
+        window.color = 'red';
+        delete window.color;
+
+        console.log(window.innerWidth);
+        console.log(window.innerHeight);
+
+        window.open("https://www.baidu.com", "topf");
+
+        // 1秒后执行，在全局作用域执行，this 为 window 或 undefined
+        let timeId = setTimeout(() => {
+            alert("hello lefe");
+        }, 1000);
+        // 取消延迟执行任务
+        clearTimeout(timeId);
+        // 没 1 秒执行一次
+        let intervalId = setInterval(() => {
+            console.log("hello wsy");
+        }, 1000);
+        clearInterval(intervalId);
+        // result 为用户输入的内容，第二个参数为 placeholder
+        // var result = prompt("What is your name?", "Input name");
+        // console.log(result);
+        // if (confirm("Are you sure?")) {
+        //     console.log("OK");
+        // } else {
+        //     console.log("Cancel");
+        // }
+        alert("网络异常");
+
+
+    </script>
+</body>
+
+</html>

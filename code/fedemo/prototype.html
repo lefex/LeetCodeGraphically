@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function Person() {
+
+    }
+    // 在原型上定义的方法和属性，它的实例将共用这些方法和属性
+    Person.prototype.name = "lefe";
+    Person.prototype.id = "666";
+    Person.prototype.sayName = function() {
+        console.log(this.name);
+    }
+
+    var person1 = new Person();
+    // 实例的属性会屏蔽与原型同名的属性，但不是覆盖原型的属性
+    person1.name = "wsy";
+    person1.age = 20;
+    person1.from = "china";
+    person1.sayName();
+    // hasOwnProperty 判断实例是否有某个属性
+    console.log(person1.hasOwnProperty("name")); //  true
+    // in 操作符可以判断是否包含属性，无论在原型还是在实例
+    console.log("name" in person1); // true
+    // 判断原型中是否包含某个属性（属性存在但不是实例中存在，那么就在原型中存在）
+    function haPrototype(obj, name) {
+        return !obj.hasOwnProperty(name) && (name in obj);
+    }
+    // person1 的所有属性名（不包含原型）
+    console.log(Object.keys(person1));
+    // Person 原型的属性名 [name, id , sayName]
+    console.log(Object.keys(Person.prototype));
+    console.log(Object.getOwnPropertyNames(person1));
+    // 包含了不可枚举的构造函数
+    console.log(Object.getOwnPropertyNames(Person.prototype));
+
+    var person2 = new Person();
+    person2.sayName();
+    console.log(person2.hasOwnProperty("name")); // false
+
+    var person3 = new Person();
+    person3.name = "超越技术";
+    // 删除定义的属性后，访问属性的时候会到原型中访问
+    delete person3.name;
+    person3.sayName();
+    console.log(person3.hasOwnProperty("name")); // false
+
+   // person1 和 person2 具有相同的属性和方法
+    if (person1.sayName == person2.sayName) {
+        console.log("sayName fun is equal!");
+    }
+
+    // 更简单的原型方法
+    function Cat() {
+    } 
+    // 调用构造函数会为实例添加一个指向最初原型的 [[Prototype]] 指针
+    var xiaohua = new Cat();
+    // 这种方式创建的原型属性将覆盖掉默认的原型属性，导致 constructor 指向的是 Object，而不是 Cat
+    // 重写原型属性，相当于切断了构造函数与最初原型之间的联系，实例中的指针仅执行原型，而不指向构造函数
+    Cat.prototype = {
+        // 重新指向 constructor
+        constructor: Cat,
+        name : "hua mao",
+        age : 1,
+        sayName: function () {
+            console.log("I am " + this.name);
+        }
+    }
+    // error
+    // xiaohua.sayName();
+
+    // 组合使用构造函数和原型模式
+    function Dog(name) {
+        this.name = name;
+        this.sons = ["xiaohua"];
+    }
+
+    Dog.prototype = {
+        constructor: Dog,
+        sayName: function() {
+            console.log(this.name);
+        }
+    }
+
+    var xiaoli = new Dog("xiaoli");
+    var xiaozhang = new Dog("xiaozhang");
+    xiaoli.sons.push("xiaopang");
+    // 每个实例都具有各自的属性，但有相同的方法
+    console.log(xiaoli.sons);
+    console.log(xiaozhang.sons);
+
+    // 解释器遇到错误后，后面的代码就不会执行了
+    console.log('I not work!');
+
+    </script>
+</body>
+</html>
